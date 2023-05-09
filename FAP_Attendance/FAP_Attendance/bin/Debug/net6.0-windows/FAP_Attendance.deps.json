@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "FAP_Attendance/1.0.0": {
+        "runtime": {
+          "FAP_Attendance.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FAP_Attendance/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
