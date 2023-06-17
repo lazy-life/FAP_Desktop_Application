@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\App.xaml
-14275988
-
-41928151563
-194-1617825143
-Views\FAP_MainWindow.xaml;
+20623176473
+1130208648
+171797462552
+201688437563
+Managers\Resource\Border.xaml;Managers\Resource\Button.xaml;Managers\Resource\ColorGeneric.xaml;Managers\Resource\ComboBox.xaml;Managers\Resource\Font.xaml;Managers\Resource\Icon.xaml;Managers\Resource\Image.xaml;Managers\Resource\ListView.xaml;Managers\Resource\MergeResource.xaml;Managers\Resource\ScrollView.xaml;Managers\Resource\TextBlock.xaml;Managers\Resource\TextBox.xaml;Views\FAP_LOGIN_View.xaml;Views\FAP_STUDENT_ATTENDANCE_View.xaml;Views\FAP_STUDENT_HOME_View.xaml;Views\FAP_TEACHER_HOME_View.xaml;Views\UserControll\FAP_UC_01View.xaml;Views\UserControll\FAP_UC_02View.xaml;Views\UserControll\FAP_UC_03View.xaml;Views\UserControll\FAP_UC_04View.xaml;
 
 False
 

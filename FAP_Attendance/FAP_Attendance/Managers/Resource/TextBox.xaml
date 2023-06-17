@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ColorGeneric.xaml" />
+        <ResourceDictionary Source="Font.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Border.CornerRadius" Value="20"/>
+        <Setter Property="Border.BorderThickness" Value="0"/>
+    </Style>
+</ResourceDictionary>

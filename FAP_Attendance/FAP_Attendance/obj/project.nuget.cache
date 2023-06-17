@@ -1,8 +1,24 @@
 {
   "version": 2,
-  "dgSpecHash": "MUBS6N+Wpp2ZhvUDv0qjHzusWHwMyKxuSXRrz7JQQZQsdDlOKl7EW2Amd1LLbc5vnEQ7yGVZaX4Qm9m7B2sVSQ==",
+  "dgSpecHash": "x78Aq4p+Awli/X31LKWjPeLEO5Bjz01tfWokXraBtE2tWl48UPnqx5hJFwGNVlXnefsKOX/II2k0bsvGHlDS5A==",
   "success": true,
   "projectFilePath": "C:\\Users\\ducda\\OneDrive\\Documents\\GitHub\\FAP_Desktop_Application\\FAP_Attendance\\FAP_Attendance\\FAP_Attendance.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ducda\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\prism.unity\\8.1.97\\prism.unity.8.1.97.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\unity.abstractions\\5.11.7\\unity.abstractions.5.11.7.nupkg.sha512",
+    "C:\\Users\\ducda\\.nuget\\packages\\unity.container\\5.11.11\\unity.container.5.11.11.nupkg.sha512"
+  ],
   "logs": []
 }

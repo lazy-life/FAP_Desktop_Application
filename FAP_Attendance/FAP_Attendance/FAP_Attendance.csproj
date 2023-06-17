@@ -1,16 +1,63 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ApplicationIcon>fap.ico</ApplicationIcon>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\Command\" />
-    <Folder Include="ViewModels\Converter\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<Folder Include="Views\PopUp\" />
+	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="log4net" Version="2.0.15" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+		<PackageReference Include="Prism.Core" Version="8.1.97" />
+		<PackageReference Include="Prism.Unity" Version="8.1.97" />
+		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Managers\Font\Fontspring-DEMO-neuesingular-d-medium.otf" />
+		<None Remove="Managers\Images\application.png" />
+		<None Remove="Managers\Images\bell.png" />
+		<None Remove="Managers\Images\calender.png" />
+		<None Remove="Managers\Images\check.png" />
+		<None Remove="Managers\Images\checkStatus.png" />
+		<None Remove="Managers\Images\exam.png" />
+		<None Remove="Managers\Images\help.png" />
+		<None Remove="Managers\Images\logo.png" />
+		<None Remove="Managers\Images\Avatar.jpg" />
+		<None Remove="Managers\Images\CloseButton.png" />
+		<None Remove="Managers\Images\mark.png" />
+		<None Remove="Managers\Images\schedule.png" />
+		<None Remove="Managers\Images\time.png" />
+		<None Remove="Managers\Images\move.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Managers\Font\Fontspring-DEMO-neuesingular-d-medium.otf">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Managers\Images\application.png" />
+		<Resource Include="Managers\Images\bell.png" />
+		<Resource Include="Managers\Images\calender.png" />
+		<Resource Include="Managers\Images\check.png" />
+		<Resource Include="Managers\Images\checkStatus.png" />
+		<Resource Include="Managers\Images\exam.png" />
+		<Resource Include="Managers\Images\help.png" />
+		<Resource Include="Managers\Images\logo.png" />
+		<Resource Include="Managers\Images\Avatar.jpg" />
+		<Resource Include="Managers\Images\CloseButton.png" />
+		<Resource Include="Managers\Images\mark.png" />
+		<Resource Include="Managers\Images\schedule.png" />
+		<Resource Include="Managers\Images\time.png" />
+		<Resource Include="Managers\Images\move.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="fap.ico" />
+	</ItemGroup>
 </Project>

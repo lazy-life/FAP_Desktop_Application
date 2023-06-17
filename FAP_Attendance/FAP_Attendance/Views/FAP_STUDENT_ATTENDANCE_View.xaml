@@ -1,0 +1,354 @@
+﻿<Window x:Class="FAP_Attendance.Views.FAP_STUDENT_ATTENDANCE_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FAP_Attendance.Views"
+        xmlns:uc="clr-namespace:FAP_Attendance.Views.UserControll"
+        mc:Ignorable="d"
+        Title="FAP_STUDENT_ATTENDANCE_View"
+        Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
+        Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        x:Name="FAP_STUDENT_ATTENDANCE_Window">
+    <Window.Resources>
+        <ResourceDictionary Source="../Managers/Resource/MergeResource.xaml" />
+    </Window.Resources>
+    <Grid Background="{StaticResource Color55Brush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <uc:FAP_UC_01View Grid.Row="0" Title="Attendance Report"/>
+        <!--line-->
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" Opacity="0.2"/>
+
+        <Grid Grid.Row="2" Margin="50 50 20 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0">
+                    <TextBlock Text="Term">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="1" Margin="0 20 0 0" BorderBrush="{StaticResource Color53Brush}" BorderThickness="1" CornerRadius="20">
+                    <Border BorderThickness="7" BorderBrush="{StaticResource Color54Brush}" CornerRadius="20" 
+                            Background="{StaticResource Color55Brush}">
+                        <ComboBox Grid.Column="1" Height="30" Width="250" >
+                            <ComboBoxItem Name="Item1">Item1</ComboBoxItem>
+                            <ComboBoxItem Name="Item2">Item2</ComboBoxItem>
+                            <ComboBoxItem Name="Item3">Item3</ComboBoxItem>
+                            <ComboBoxItem Name="Item4">Item4</ComboBoxItem>
+                            <ComboBoxItem Name="Item5">Item5</ComboBoxItem>
+                            <ComboBoxItem Name="Item6">Item6</ComboBoxItem>
+                            <ComboBoxItem Name="Item7">Item7</ComboBoxItem>
+                            <ComboBoxItem Name="Item8">Item8</ComboBoxItem>
+                            <ComboBoxItem Name="Item9">Item9</ComboBoxItem>
+                            <ComboBoxItem Name="Item10">Item10</ComboBoxItem>
+                            <ComboBoxItem Name="Item11">Item11</ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                </Border>
+
+                <Border Grid.Row="2" Margin="0 70 0 0">
+                    <TextBlock Text="Course">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="3" Width="500" Height="Auto" Background="{StaticResource Color54Brush}"
+                        BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="20" Padding="10"
+                        Margin="0 30 0 0">
+                    <StackPanel Orientation="Vertical">
+                        <Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
+                            Margin="10 10 10 10" Height="Auto" BorderThickness="1" CornerRadius="20" Padding="20 20">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Group Experiential Entrepreneurship 1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                            <Setter Property="FontWeight" Value="Medium"/>
+                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Text="PRU211m">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                            <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Text="SE1619-NET">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                            <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Start">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <TextBlock Text=" 08/05/2023">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
+                            Margin="10 10 10 10" Height="Auto" BorderThickness="1" CornerRadius="20" Padding="20 20">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Group Experiential Entrepreneurship 1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                            <Setter Property="FontWeight" Value="Medium"/>
+                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Text="PRU211m">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                            <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Text="SE1619-NET">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                            <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Start">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <TextBlock Text=" 08/05/2023">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+
+            <!--Column 2-->
+            <Grid Grid.Column="1" Margin="100 0 0 30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0">
+                    <TextBlock Text="Term">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 20 0 0">
+                    <Border Width="200" Height="70" 
+                            Background="#27a7f2" 
+                            BorderBrush="#27a7f2" 
+                            BorderThickness="1" 
+                            CornerRadius="20">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Absent">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                        <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Margin" Value="10 0 0 0"/>
+                                        <Setter Property="Width" Value="100"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <Border Width="60" Height="60" 
+                                    Background="{StaticResource Color54Brush}" 
+                                    BorderThickness="2" 
+                                    CornerRadius="50" Margin="10 0 0 0">
+                                <TextBlock Text="20" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center" 
+                                           Foreground="#48220c"
+                                           FontSize="{StaticResource FontSize18}"
+                                           FontWeight="Medium"
+                                           Padding="10"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="200" Height="70" 
+                            Background="#7ef227" 
+                            BorderBrush="#7ef227" 
+                            BorderThickness="1" 
+                            Margin="20 0 0 0"
+                            CornerRadius="20">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Present">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                        <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Margin" Value="10 0 0 0"/>
+                                        <Setter Property="Width" Value="100"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <Border Width="60" Height="60" 
+                                    Background="{StaticResource Color54Brush}" 
+                                    BorderThickness="2" 
+                                    CornerRadius="50" Margin="10 0 0 0">
+                                <TextBlock Text="20" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center" 
+                                           Foreground="#48220c"
+                                           FontSize="{StaticResource FontSize18}"
+                                           FontWeight="Medium"
+                                           Padding="10"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="200" Height="70" 
+                            Background="{StaticResource Color53Brush}" 
+                            BorderBrush="{StaticResource Color53Brush}" 
+                            BorderThickness="1" 
+                            Margin="20 0 0 0"
+                            CornerRadius="20">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Total">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                        <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Margin" Value="10 0 0 0"/>
+                                        <Setter Property="Width" Value="100"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <Border Width="60" Height="60" 
+                                    Background="{StaticResource Color54Brush}" 
+                                    BorderThickness="2" 
+                                    CornerRadius="50" Margin="10 0 0 0">
+                                <TextBlock Text="20" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center" 
+                                           Foreground="#48220c"
+                                           FontSize="{StaticResource FontSize18}"
+                                           FontWeight="Medium"
+                                           Padding="10"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <Border Grid.Row="2" Margin="0 60 0 0">
+                    <TextBlock Text="Report">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="3" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
+                    <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
+                        <uc:FAP_UC_03View/>
+                    </Border>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

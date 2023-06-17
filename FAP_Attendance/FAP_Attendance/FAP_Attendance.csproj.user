@@ -7,12 +7,84 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\FAP_MainWindow.xaml.cs">
+    <Compile Update="Views\FAP_LOGIN_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FAP_STUDENT_ATTENDANCE_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FAP_TEACHER_HOME_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserControll\FAP_UC_01View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserControll\FAP_UC_02View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserControll\FAP_UC_03View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserControll\FAP_UC_04View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\FAP_MainWindow.xaml">
+    <Page Update="Managers\Resource\Border.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\Button.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\ColorGeneric.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\ComboBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\Font.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\Icon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\Image.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\ListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\MergeResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\ScrollView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\TextBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Managers\Resource\TextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_LOGIN_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_STUDENT_ATTENDANCE_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_TEACHER_HOME_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserControll\FAP_UC_01View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserControll\FAP_UC_02View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserControll\FAP_UC_03View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserControll\FAP_UC_04View.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

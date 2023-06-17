@@ -1,0 +1,848 @@
+﻿<Window x:Class="FAP_Attendance.Views.FAP_STUDENT_HOME_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FAP_Attendance.Views"
+        xmlns:uc="clr-namespace:FAP_Attendance.Views.UserControll"
+        mc:Ignorable="d"
+        Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
+        Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        x:Name="FAP_STUDENT_HOME_Window">
+    <Window.Resources>
+        <ResourceDictionary Source="../Managers/Resource/MergeResource.xaml" />
+    </Window.Resources>
+    <Grid Background="{StaticResource Color55Brush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <uc:FAP_UC_01View Grid.Row="0" Title="Home"/>
+        <!--line-->
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" Opacity="0.2"/>
+
+        <!--Row 2-->
+        <Grid Grid.Row="2" Margin="50 50 20 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 0-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="2">
+                    <TextBlock Text="Academic Information">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <!--Row 1 and Column 0-->
+                <Border Grid.Row="1" Grid.Column="0">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource bell}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Notification" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 1 and Column 1-->
+                <Border Grid.Row="1" Grid.Column="1">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource application}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Application Status" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 1 and Column 2-->
+                <Border Grid.Row="1" Grid.Column="2">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource time}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Weekly Timetable" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 2 and Column 0-->
+                <Border Grid.Row="2" Grid.Column="0">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource exam}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Exam Schedule" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 2 and Column 1-->
+                <Border Grid.Row="2" Grid.Column="1">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource checkStatus}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Attendance Report" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 2 and Column 2-->
+                <Border Grid.Row="2" Grid.Column="2">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource mark}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Mark Report" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 3 and Column Span 0-->
+                <Border Grid.Row="3" Grid.Column="0">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource help}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Contact" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+
+                <Border Grid.Row="4" Grid.ColumnSpan="2" Margin="0 50 0 0">
+                    <TextBlock Text="News">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="2" Margin="0 50 0 0" HorizontalAlignment="Center" >
+                    <StackPanel Orientation="Horizontal" Margin="40 0 0 0">
+                        <TextBlock Text="See All">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                    <Setter Property="Foreground" Value="{StaticResource Color53Brush}"/>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Image Source="{StaticResource move}" Width="20" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="5" Grid.ColumnSpan="3" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
+                    <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
+                        <Grid >
+                            <ListView Style="{StaticResource ListViewTitle}" x:Name="MyListView" ItemsSource="{Binding contacts}">
+                                <!--<ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="border" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True" />
+                                            <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>-->
+
+
+                                <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="3" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                 Value="True">
+                                        <Setter Property="BorderBrush" Value="#f4701e" />
+                                        <Setter Property="CornerRadius" Value="8" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="Auto" VerticalAlignment="Center" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Margin" Value="5,10" />
+                                        <Setter Property="Foreground" Value="Black" />
+                                    </Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Setter Property="BorderBrush" Value="DarkGray" />
+                                        <Setter Property="Background" Value="white" />
+                                    </Style>
+                                </Grid.Resources>
+                                <Border Grid.Column="0" BorderThickness="1 1 0 1" BorderBrush="#0191ce" CornerRadius="8 0 0 8" >
+                                    <TextBlock Text="{Binding FullName, Mode=TwoWay}" />
+                                </Border>
+                                <Border Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="#0191ce">
+                                    <TextBlock Text="{Binding Email, Mode=TwoWay}" />
+                                </Border>
+                                <Border Grid.Column="2" BorderThickness="1" BorderBrush="#0191ce">
+                                    <TextBlock Text="{Binding Phone, Mode=TwoWay}" />
+                                </Border>
+                                <Border Grid.Column="3" BorderThickness="0 1 1 1" BorderBrush="#0191ce" CornerRadius="0 8 8 0" >
+                                    <TextBlock Text="{Binding Note, Mode=TwoWay}" />
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
+
+                                <ListView.Template>
+                                    <ControlTemplate>
+                                        <Grid HorizontalAlignment="Left">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0" Width="580" VerticalAlignment="Center">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Border Grid.Column="0" Style="{StaticResource BorderGrid}" >
+                                                    <TextBlock Text="Monday" Style="{StaticResource TextBlockGrid}"/>
+                                                </Border>
+                                            </Grid>
+                                            <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">
+                                                <ItemsPresenter />
+                                            </ScrollViewer>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ListView.Template>
+                            </ListView>
+                        </Grid>
+                    </Border>
+                </Border>
+
+            </Grid>
+
+            <!--column 1-->
+            <Grid Grid.Column="1" Margin="200 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="510"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="2">
+                    <TextBlock Text="Weekly Timetable">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
+                    <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
+                        <uc:FAP_UC_02View/>
+                    </Border>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="0" Margin="0 50 0 0">
+                    <TextBlock Text="Important  Notice">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="1" Margin="0 50 30 0" HorizontalAlignment="Right" >
+                    <StackPanel Orientation="Horizontal" Margin="40 0 0 0">
+                        <TextBlock Text="See All">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                    <Setter Property="Foreground" Value="{StaticResource Color53Brush}"/>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Image Source="{StaticResource move}" Width="20" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="3" Grid.ColumnSpan="2" Width="Auto" Height="365" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
+                    <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Changing major">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="0" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="4 weeks before the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Suspend one semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="1 week before the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Row="2" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Suspend one semester to take repeated course">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="2" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="1 week before the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Row="3" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Retake to improve mark">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="12 hours before the final exam resit">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="4" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Free of attendance">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="4" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="2 weeks after starting the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="5" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text=" Pay specialized tuition">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="5" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="7 working days before the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="6" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Pay preparetation English tuition">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="6" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="3 working days before the new course ">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Row="7" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Register to repeat a course">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="7" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="1 week before the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Row="8" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Request a drop out">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="8" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="1 week before the new semester ">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Row="9" Grid.Column="0">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="20 0 0 20">
+                                        <TextBlock Text="Move out class">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="9" Grid.Column="1">
+                                    <Border Background="#fce3d4" Height="50" CornerRadius="0 20 20 0" BorderThickness="1 0 0 0" BorderBrush="#914417">
+                                        <TextBlock Text="1 week before the new semester">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="#180b04"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="Margin" Value="20 0 0 0"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+                    </Border>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

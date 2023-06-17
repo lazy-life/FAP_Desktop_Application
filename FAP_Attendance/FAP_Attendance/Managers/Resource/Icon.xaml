@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <BitmapImage x:Key="logo" UriSource="../Images/logo.PNG" />
+    <BitmapImage x:Key="closeButton" UriSource="../Images/CloseButton.png" />
+    <BitmapImage x:Key="avatar" UriSource="../Images/Avatar.jpg" />
+    <BitmapImage x:Key="application" UriSource="../Images/application.png" />
+    <BitmapImage x:Key="bell" UriSource="../Images/bell.png" />
+    <BitmapImage x:Key="calender" UriSource="../Images/calender.png" />
+    <BitmapImage x:Key="check" UriSource="../Images/check.png" />
+    <BitmapImage x:Key="checkStatus" UriSource="../Images/checkStatus.png" />
+    <BitmapImage x:Key="exam" UriSource="../Images/exam.png" />
+    <BitmapImage x:Key="help" UriSource="../Images/help.png" />
+    <BitmapImage x:Key="mark" UriSource="../Images/mark.png" />
+    <BitmapImage x:Key="schedule" UriSource="../Images/schedule.png" />
+    <BitmapImage x:Key="time" UriSource="../Images/time.png" />
+    <BitmapImage x:Key="move" UriSource="../Images/move.png" />
+</ResourceDictionary>
