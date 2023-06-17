@@ -70,7 +70,9 @@
                     </TextBox>
                 </Border>
                 <Border Grid.Row="4" Margin="0 50 0 0">
-                    <Button Content="Login">
+                    <Button Content="Login"
+                            Command="{Binding LoginCommand}"
+                            CommandParameter="{Binding ElementName=FAP_LOGIN_Window}">
                         <Button.Style>
                             <Style BasedOn="{StaticResource ButtonStyle2}" TargetType="{x:Type Button}">
                                 <Setter Property="FontSize" Value="{StaticResource FontSize28}"/>

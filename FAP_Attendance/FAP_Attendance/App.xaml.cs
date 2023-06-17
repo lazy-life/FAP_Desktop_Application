@@ -39,6 +39,8 @@ namespace FAP_Attendance
 
             #region ViewModel
             containerRegistry.Register<IBaseViewModel, BaseViewModel>();
+            containerRegistry.Register<IFAP_LOGIN_ViewModel, FAP_LOGIN_ViewModel>();
+            containerRegistry.Register<IFAP_STUDENT_HOME_ViewModel, FAP_STUDENT_HOME_ViewModel>();
             #endregion
 
             Manager.Configuration(Container);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FAP_Attendance.IViewModels;
+using FAP_Attendance.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,10 @@ namespace FAP_Attendance.Views
     /// </summary>
     public partial class FAP_STUDENT_HOME_View : Window
     {
-        public List<string> contacts { get; set; } = new List<string>();
         public FAP_STUDENT_HOME_View()
         {
             InitializeComponent();
-            for (int i = 0; i < 20; i++)
-            {
-                contacts.Add("hello");
-            }
+            DataContext = Manager.Resolve<IFAP_STUDENT_HOME_ViewModel>();
         }
 
     }

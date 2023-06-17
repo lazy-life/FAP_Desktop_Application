@@ -13,6 +13,9 @@
     <Compile Update="Views\FAP_STUDENT_ATTENDANCE_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\FAP_TEACHER_ATTENDANCE_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\FAP_TEACHER_HOME_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UserControll\FAP_UC_04View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserControll\FAP_UC_05View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -72,6 +78,9 @@
     <Page Update="Views\FAP_STUDENT_ATTENDANCE_View.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\FAP_TEACHER_ATTENDANCE_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\FAP_TEACHER_HOME_View.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -85,6 +94,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UserControll\FAP_UC_04View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserControll\FAP_UC_05View.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

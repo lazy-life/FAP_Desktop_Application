@@ -10,7 +10,7 @@
         <ResourceDictionary Source="/Managers/Resource/MergeResource.xaml" />
     </UserControl.Resources>
     <Grid>
-        <ListView Style="{StaticResource ListViewTitle}" x:Name="MyListView" ItemsSource="{Binding contacts}">
+        <ListView Style="{StaticResource ListViewTitle}" x:Name="MyListView" Height="750" ItemsSource="{Binding contacts}">
             <!--<ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="Padding" Value="0"/>

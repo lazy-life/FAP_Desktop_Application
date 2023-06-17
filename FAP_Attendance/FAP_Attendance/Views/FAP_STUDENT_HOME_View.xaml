@@ -196,7 +196,8 @@
 
                 <!--Row 2 and Column 1-->
                 <Border Grid.Row="2" Grid.Column="1">
-                    <Button>
+                    <Button Command="{Binding AttendanceReportCommand}"
+                            CommandParameter="{Binding ElementName=FAP_STUDENT_HOME_Window}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
                                 <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>

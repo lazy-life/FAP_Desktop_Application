@@ -55,3 +55,8 @@ C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\
 C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\FAP_TEACHER_HOME_View.baml
 C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\UserControll\FAP_UC_04View.g.cs
 C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\UserControll\FAP_UC_04View.baml
+C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\FAP_TEACHER_ATTENDANCE_View.g.cs
+C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\FAP_TEACHER_ATTENDANCE_View.baml
+C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\UserControll\FAP_UC_05View.g.cs
+C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\obj\Debug\net6.0-windows\Views\UserControll\FAP_UC_05View.baml
+C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\bin\Debug\net6.0-windows\FAP_Attendance.dll.config
