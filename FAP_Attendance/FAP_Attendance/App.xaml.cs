@@ -23,7 +23,7 @@ namespace FAP_Attendance
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<FAP_TEACHER_HOME_View>();
+            return Container.Resolve<FAP_Welcome_View>();
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -41,6 +41,14 @@ namespace FAP_Attendance
             containerRegistry.Register<IBaseViewModel, BaseViewModel>();
             containerRegistry.Register<IFAP_LOGIN_ViewModel, FAP_LOGIN_ViewModel>();
             containerRegistry.Register<IFAP_STUDENT_HOME_ViewModel, FAP_STUDENT_HOME_ViewModel>();
+            containerRegistry.Register<IFAP_UC_01ViewModel, FAP_UC_01ViewModel>();
+            containerRegistry.Register<IFAP_TEACHER_HOME_ViewModel, FAP_TEACHER_HOME_ViewModel>();
+            containerRegistry.Register<IFAP_PU_TEACHER_ATTENDANCE_ViewModel, FAP_PU_TEACHER_ATTENDANCE_ViewModel>();
+            containerRegistry.Register<IFAP_STUDENT_ATTENDANCE_ViewModel, FAP_STUDENT_ATTENDANCE_ViewModel>();
+            containerRegistry.Register<IFAP_UC_02_ViewModel, FAP_UC_02_ViewModel>();
+            containerRegistry.Register<IFAP_PU_CONFIRM_EXIT_APP_ViewModel, FAP_PU_CONFIRM_EXIT_APP_ViewModel>();
+            containerRegistry.Register<IFAP_PU_LOGIN_FAIL_ViewModel, FAP_PU_LOGIN_FAIL_ViewModel>();
+            containerRegistry.Register<IFAP_TEACHER_ATTENDANCE_ViewModel, FAP_TEACHER_ATTENDANCE_ViewModel>();
             #endregion
 
             Manager.Configuration(Container);

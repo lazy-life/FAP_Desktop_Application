@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FAP_Attendance.Views"
-        xmlns:uc="clr-namespace:FAP_Attendance.Views.UserControll"
+        xmlns:uc="clr-namespace:FAP_Attendance.Views"
         mc:Ignorable="d"
         Title="FAP_STUDENT_ATTENDANCE_View"
         Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
@@ -249,7 +249,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="50" Margin="10 0 0 0">
-                                <TextBlock Text="20" 
+                                <TextBlock Text="{Binding AbsentSlot}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"
@@ -284,7 +284,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="50" Margin="10 0 0 0">
-                                <TextBlock Text="20" 
+                                <TextBlock Text="{Binding PresentSlot}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"
@@ -319,7 +319,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="50" Margin="10 0 0 0">
-                                <TextBlock Text="20" 
+                                <TextBlock Text="{Binding TotalSlot}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"
@@ -344,7 +344,7 @@
 
                 <Border Grid.Row="3" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
                     <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
-                        <uc:FAP_UC_03View/>
+                        <uc:FAP_UC_03View ItemsSource="{Binding AttendanceStudent}"/>
                     </Border>
                 </Border>
             </Grid>

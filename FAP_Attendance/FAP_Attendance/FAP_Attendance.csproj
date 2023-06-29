@@ -9,11 +9,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Models\" />
-		<Folder Include="Views\PopUp\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="log4net" Version="2.0.15" />
 		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
 		<PackageReference Include="Prism.Core" Version="8.1.97" />
@@ -30,12 +25,16 @@
 		<None Remove="Managers\Images\exam.png" />
 		<None Remove="Managers\Images\help.png" />
 		<None Remove="Managers\Images\logo.png" />
+		<None Remove="Managers\Images\logoImage.png" />
+		<None Remove="Managers\Images\logoText.png" />
 		<None Remove="Managers\Images\Avatar.jpg" />
 		<None Remove="Managers\Images\CloseButton.png" />
 		<None Remove="Managers\Images\mark.png" />
 		<None Remove="Managers\Images\schedule.png" />
 		<None Remove="Managers\Images\time.png" />
 		<None Remove="Managers\Images\move.png" />
+		<None Remove="Managers\Images\Bacground.png" />
+		<None Remove="Managers\Images\BacgroundWelcome.png" />
 	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Managers\Font\Fontspring-DEMO-neuesingular-d-medium.otf">
@@ -49,12 +48,16 @@
 		<Resource Include="Managers\Images\exam.png" />
 		<Resource Include="Managers\Images\help.png" />
 		<Resource Include="Managers\Images\logo.png" />
+		<Resource Include="Managers\Images\logoImage.png" />
+		<Resource Include="Managers\Images\logoText.png" />
 		<Resource Include="Managers\Images\Avatar.jpg" />
 		<Resource Include="Managers\Images\CloseButton.png" />
 		<Resource Include="Managers\Images\mark.png" />
 		<Resource Include="Managers\Images\schedule.png" />
 		<Resource Include="Managers\Images\time.png" />
 		<Resource Include="Managers\Images\move.png" />
+		<Resource Include="Managers\Images\Bacground.png" />
+		<Resource Include="Managers\Images\BacgroundWelcome.png" />
 	</ItemGroup>
 
 	<ItemGroup>

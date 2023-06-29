@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\ducda\OneDrive\Documents\GitHub\FAP_Desktop_Application\FAP_Attendance\FAP_Attendance\App.xaml
-221925755475
+281656428076
 1130208648
-251204339232
-201688437563
-Managers\Resource\Border.xaml;Managers\Resource\Button.xaml;Managers\Resource\ColorGeneric.xaml;Managers\Resource\ComboBox.xaml;Managers\Resource\Font.xaml;Managers\Resource\Icon.xaml;Managers\Resource\Image.xaml;Managers\Resource\ListView.xaml;Managers\Resource\MergeResource.xaml;Managers\Resource\ScrollView.xaml;Managers\Resource\TextBlock.xaml;Managers\Resource\TextBox.xaml;Views\FAP_LOGIN_View.xaml;Views\FAP_STUDENT_ATTENDANCE_View.xaml;Views\FAP_STUDENT_HOME_View.xaml;Views\FAP_TEACHER_ATTENDANCE_View.xaml;Views\FAP_TEACHER_HOME_View.xaml;Views\UserControll\FAP_UC_01View.xaml;Views\UserControll\FAP_UC_02View.xaml;Views\UserControll\FAP_UC_03View.xaml;Views\UserControll\FAP_UC_04View.xaml;Views\UserControll\FAP_UC_05View.xaml;
+63-1281160793
+201-313634474
+Managers\Resource\Border.xaml;Managers\Resource\Button.xaml;Managers\Resource\ColorGeneric.xaml;Managers\Resource\ComboBox.xaml;Managers\Resource\Font.xaml;Managers\Resource\Icon.xaml;Managers\Resource\Image.xaml;Managers\Resource\ListView.xaml;Managers\Resource\MergeResource.xaml;Managers\Resource\ScrollView.xaml;Managers\Resource\StoryBoard.xaml;Managers\Resource\TextBlock.xaml;Managers\Resource\TextBox.xaml;Views\FAP_LOGIN_View.xaml;Views\FAP_MANAGER_HOME_View.xaml;Views\FAP_PU_CONFIRM_EXIT_APP.xaml;Views\FAP_PU_LOGIN_FAIL_View.xaml;Views\FAP_PU_TEACHER_ATTENDANCE_View.xaml;Views\FAP_STUDENT_ATTENDANCE_View.xaml;Views\FAP_STUDENT_HOME_View.xaml;Views\FAP_TEACHER_ATTENDANCE_View.xaml;Views\FAP_TEACHER_HOME_View.xaml;Views\FAP_UC_01View.xaml;Views\FAP_UC_02View.xaml;Views\FAP_UC_03View.xaml;Views\FAP_UC_04View.xaml;Views\FAP_UC_05View.xaml;Views\FAP_Welcome_View.xaml;
 
-False
+True
 

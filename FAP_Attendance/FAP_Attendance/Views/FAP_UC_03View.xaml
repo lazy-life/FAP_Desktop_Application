@@ -1,0 +1,226 @@
+﻿<UserControl x:Class="FAP_Attendance.Views.FAP_UC_03View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FAP_Attendance.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="2000">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Managers/Resource/MergeResource.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <ListView Style="{StaticResource ListViewTitle}" x:Name="MyListView" Height="750" 
+                  ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType={x:Type local:FAP_UC_03View}}}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="border" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True" />
+                                            <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="3" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                 Value="True">
+                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                        <Setter Property="CornerRadius" Value="8" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="1400" VerticalAlignment="Center" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="1.5*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Margin" Value="5,10" />
+                                        <Setter Property="Foreground" Value="Black" />
+                                    </Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Setter Property="BorderBrush" Value="DarkGray" />
+                                        <Setter Property="Background" Value="white" />
+                                    </Style>
+                                </Grid.Resources>
+                                <Border Grid.Column="0" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="8 0 0 8" >
+                                    <TextBlock TextAlignment="Center" Text="{Binding AttendanceId, Mode=TwoWay}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                <Setter Property="Padding" Value="10"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Border>
+                                <Border Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock TextAlignment="Center" Text="{Binding AttendanceDate, StringFormat='{}{0:dddd}', Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                    <Setter Property="Padding" Value="10 10 10 5"/>
+                                                    <Setter Property="FontSize" Value="17"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock TextAlignment="Center" Text="{Binding AttendanceDate, StringFormat='{}{0:dd MMMM yyyy}', Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                    <Setter Property="Padding" Value="10 0 10 10"/>
+                                                    <Setter Property="FontSize" Value="17"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="2" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock TextAlignment="Center" Text="{Binding SlotId, Mode=TwoWay, Converter={StaticResource ConvertSlotToString}}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                    <Setter Property="Padding" Value="10 10 10 5"/>
+                                                    <Setter Property="FontSize" Value="17"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock TextAlignment="Center" Text="{Binding SlotId, Mode=TwoWay, Converter={StaticResource ConvertSlotTime}}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                    <Setter Property="Padding" Value="10 0 10 10"/>
+                                                    <Setter Property="FontSize" Value="17"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="3" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" >
+                                    <TextBlock TextAlignment="Center" Text="{Binding RoomId, Mode=TwoWay}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                <Setter Property="Padding" Value="10"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Border>
+                                <Border Grid.Column="4" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" >
+                                    <TextBlock TextAlignment="Center" Text="{Binding TeacherId, Mode=TwoWay}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                <Setter Property="Padding" Value="10"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Border>
+                                <Border Grid.Column="5" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="0 8 8 0" >
+                                    <Border.Style>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding AttendanceStatus, Converter={StaticResource ConvertAttendanceStatus}}" Value="Attended">
+                                                    <Setter Property="Background" Value="{StaticResource Color50Brush}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding AttendanceStatus, Converter={StaticResource ConvertAttendanceStatus}}" Value="Absent">
+                                                    <Setter Property="Background" Value="{StaticResource Color31Brush}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <TextBlock TextAlignment="Center" Text="{Binding AttendanceStatus, Mode=TwoWay, Converter={StaticResource ConvertAttendanceStatus}}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle3}">
+                                                <Setter Property="Padding" Value="10"/>
+                                                <Setter Property="Foreground" Value="{StaticResource Color54Brush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding AttendanceStatus, Converter={StaticResource ConvertAttendanceStatus}}" Value="-">
+                                                        <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize24}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Width="1400" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1.5*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Style="{StaticResource BorderGrid}" >
+                                <TextBlock Text="Number" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="1" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Date" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="2" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Slot" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="3" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Room" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="4" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Lecturer" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="5" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Attendance Status" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                        </Grid>
+                        <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+        </ListView>
+    </Grid>
+</UserControl>

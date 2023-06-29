@@ -1,0 +1,129 @@
+﻿<Window x:Class="FAP_Attendance.Views.FAP_PU_LOGIN_FAIL_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FAP_Attendance.Views"
+        mc:Ignorable="d"
+        Title=""
+        Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
+        Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}"
+        MinWidth="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
+        MinHeight="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}" 
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        x:Name="FAP_PU_LOGIN_FAIL_Window">
+    <Window.Resources>
+        <ResourceDictionary Source="../Managers/Resource/MergeResource.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Border  Grid.ZIndex="6"
+                 Height="Auto">
+            <Border.Style>
+                <Style  TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="300 180 300 0" />
+                    <Setter Property="Width" Value="Auto" />
+                </Style>
+            </Border.Style>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border  BorderThickness="7"  BorderBrush="{StaticResource Color53Brush}" CornerRadius="20 20 0 0">
+                    <TextBlock Grid.Row="0"  Text="Login Fail">
+                        <TextBlock.Style>
+                            <Style  TargetType="{x:Type TextBlock}">
+                                <Setter Property="Height" Value="76" />
+                                <Setter Property="Foreground" Value="#FFFFFF" />
+                                <Setter Property="FontSize" Value="{StaticResource FontSize35}" />
+                                <Setter Property="FontWeight" Value="Medium" />
+                                <Setter Property="Background" Value="{StaticResource Color53Brush}" />
+                                <Setter Property="Padding" Value="30 10 0 15" />
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Border>
+                <Border Grid.Row="1" Background="{StaticResource Color54Brush}" Height="200"
+                        BorderThickness="0" >
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Username or Password is invalid!">
+                            <TextBlock.Style>
+                                <Style  TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground" Value="{StaticResource Color29Brush}" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="FontSize" Value="{StaticResource FontSize40}" />
+                                    <Setter Property="FontWeight" Value="Medium" />
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+
+                        <TextBlock Text="Try Again?">
+                            <TextBlock.Style>
+                                <Style  TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground" Value="{StaticResource Color29Brush}" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="FontSize" Value="{StaticResource FontSize40}" />
+                                    <Setter Property="FontWeight" Value="Medium" />
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+                <StackPanel Grid.Row="2">
+                    <Border Background="{StaticResource Color54Brush}" Margin="0 -1 0 0"  BorderThickness="0" BorderBrush="#FFFFFF" CornerRadius="0 0 20 20">
+                        <Grid Background="{StaticResource Color54Brush}" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Content="Try Again" Grid.Column="0"  Margin="0 40 50 30" Command="{Binding ButtonTryAgainCommand}"
+                                    CommandParameter="{Binding ElementName=FAP_PU_LOGIN_FAIL_Window}">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                        <Setter Property="Background" Value="{StaticResource Color31Brush}"/>
+                                        <Setter Property="Border.CornerRadius" Value="20" />
+                                        <Setter Property="FontWeight" Value="Medium"/>
+                                        <Setter Property="Foreground" Value="{StaticResource Color54Brush}"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="Width" Value="305"/>
+                                        <Setter Property="Height" Value="80"/>
+                                        <Setter Property="FontSize" Value="{StaticResource FontSize35}"/>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+
+                            <Button Content="Exit" Grid.Column="1"  Margin="50 40 20 30" Command="{Binding ButtonExitCommand}"
+                                    CommandParameter="{Binding ElementName=FAP_PU_LOGIN_FAIL_Window}">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                        <Setter Property="Background" Value="{StaticResource Color20Brush}"/>
+                                        <Setter Property="Border.CornerRadius" Value="20" />
+                                        <Setter Property="FontWeight" Value="Medium"/>
+                                        <Setter Property="Foreground" Value="{StaticResource Color54Brush}"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="Width" Value="305"/>
+                                        <Setter Property="Height" Value="80"/>
+                                        <Setter Property="FontSize" Value="{StaticResource FontSize35}"/>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Rectangle Grid.RowSpan="7" Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
+                   Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}" 
+                   Fill="#000000" Opacity="0.7" Grid.ZIndex="5"/>
+    </Grid>
+</Window>
+
+

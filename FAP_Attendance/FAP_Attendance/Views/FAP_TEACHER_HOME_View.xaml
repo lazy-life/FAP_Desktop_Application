@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FAP_Attendance.Views"
-        xmlns:uc="clr-namespace:FAP_Attendance.Views.UserControll"
+        xmlns:uc="clr-namespace:FAP_Attendance.Views"
         mc:Ignorable="d"
         Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
         Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}"
@@ -48,7 +48,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Row="0" Grid.ColumnSpan="2">
-                    <TextBlock Text="Academic Information">
+                    <TextBlock Text="Activity">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
@@ -162,7 +162,8 @@
 
                 <!--Row 2 and Column 0-->
                 <Border Grid.Row="2" Grid.Column="0">
-                    <Button>
+                    <Button Command="{Binding TakeAttendanceCommand}"
+                            CommandParameter="{Binding ElementName=FAP_TEACHER_HOME_Window}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
                                 <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
@@ -256,14 +257,48 @@
                             </Style>
                         </Button.Style>
                         <StackPanel Orientation="Vertical">
-                            <Image Source="{StaticResource mark}" Style="{StaticResource ImageStyle1}"/>
+                            <Image Source="{StaticResource check}" Style="{StaticResource ImageStyle1}"/>
                             <TextBlock Text="View FeedBack" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
                         </StackPanel>
                     </Button>
                 </Border>
 
-                <!--Row 3 and Column Span 0-->
+                <!--Row 3 and Column 0-->
                 <Border Grid.Row="3" Grid.Column="0">
+                    <Button>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
+                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="-120" ShadowDepth="1" BlurRadius="7" Opacity="0.5" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="{StaticResource mark}" Style="{StaticResource ImageStyle1}"/>
+                            <TextBlock Text="Mark" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle1}"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!--Row 3 and Column 1-->
+                <Border Grid.Row="3" Grid.Column="1">
                     <Button>
                         <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">

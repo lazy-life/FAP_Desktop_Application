@@ -1,0 +1,528 @@
+﻿<UserControl x:Class="FAP_Attendance.Views.FAP_UC_02View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FAP_Attendance.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="2000">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Managers/Resource/MergeResource.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <ListView Style="{StaticResource ListViewTitle}" x:Name="MyListView" 
+                  ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType={x:Type local:FAP_UC_02View}}}" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="border" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True" />
+                                            <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="3" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                 Value="True">
+                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                        <Setter Property="CornerRadius" Value="8" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid  Width="1200" MinHeight="50" VerticalAlignment="Center" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Margin" Value="5,10" />
+                                        <Setter Property="Foreground" Value="Black" />
+                                    </Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Setter Property="BorderBrush" Value="DarkGray" />
+                                        <Setter Property="Background" Value="white" />
+                                    </Style>
+                                </Grid.Resources>
+                                <Border Grid.Column="0" 
+                                        BorderThickness="1 1 0 1" 
+                                        BorderBrush="{StaticResource Color53Brush}" 
+                                        CornerRadius="8 0 0 8" >
+                                    <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertIntToString}}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Border>
+                                <Border Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                    <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+                                        <TextBlock Text="{Binding Monday, Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color20Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="DE-303">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Monday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Monday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Border BorderBrush="{StaticResource Color50Brush}" 
+                                                BorderThickness="1" 
+                                                Background="{StaticResource Color50Brush}"
+                                                CornerRadius="10"
+                                                Width="110"
+                                                Height="30"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Monday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Monday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="(12:50-15:10)">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Padding" Value="5"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="2" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                    <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+                                        <TextBlock Text="{Binding Tuesday, Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color20Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="DE-303">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tuesday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Tuesday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Border BorderBrush="{StaticResource Color50Brush}" 
+                                                BorderThickness="1" 
+                                                Background="{StaticResource Color50Brush}"
+                                                CornerRadius="10"
+                                                Width="110"
+                                                Height="30"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tuesday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Tuesday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="(12:50-15:10)">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Padding" Value="5"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="3" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" >
+                                    <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+                                        <TextBlock Text="{Binding Wednesday, Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color20Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="DE-303">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Wednesday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Wednesday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Border BorderBrush="{StaticResource Color50Brush}" 
+                                                BorderThickness="1" 
+                                                Background="{StaticResource Color50Brush}"
+                                                CornerRadius="10"
+                                                Width="110"
+                                                Height="30"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Wednesday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Wednesday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="(12:50-15:10)">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Padding" Value="5"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="4" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" >
+                                    <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+                                        <TextBlock Text="{Binding Thursday, Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color20Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="DE-303">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Thursday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Thursday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Border BorderBrush="{StaticResource Color50Brush}" 
+                                                BorderThickness="1" 
+                                                Background="{StaticResource Color50Brush}"
+                                                CornerRadius="10"
+                                                Width="110"
+                                                Height="30"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Thursday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Thursday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="(12:50-15:10)">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Padding" Value="5"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="5" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" >
+                                    <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+                                        <TextBlock Text="{Binding Friday, Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color20Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="DE-303">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Friday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Friday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Border BorderBrush="{StaticResource Color50Brush}" 
+                                                BorderThickness="1" 
+                                                Background="{StaticResource Color50Brush}"
+                                                CornerRadius="10"
+                                                Width="110"
+                                                Height="30"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Friday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Friday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="(12:50-15:10)">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Padding" Value="5"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="6" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="0 8 8 0" >
+                                    <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+                                        <TextBlock Text="{Binding Saturday, Mode=TwoWay}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color20Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="DE-303">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize17}"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Saturday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Saturday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Border BorderBrush="{StaticResource Color50Brush}" 
+                                                BorderThickness="1" 
+                                                Background="{StaticResource Color50Brush}"
+                                                CornerRadius="10"
+                                                Width="110"
+                                                Height="30"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Saturday, Converter={StaticResource CheckDataEmpty}}" Value="false">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Saturday, Converter={StaticResource CheckDataEmpty}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="(12:50-15:10)">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                        <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                        <Setter Property="Padding" Value="5"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Width="1200" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Style="{StaticResource BorderGrid}" >
+                                <TextBlock Text="Slot" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="1" Style="{StaticResource BorderGrid}" >
+                                <TextBlock Text="Monday" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="2" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Tuesday" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="3" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Wednesday" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="4" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Thursday" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="5" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Friday" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                            <Border Grid.Column="6" Style="{StaticResource BorderGrid}">
+                                <TextBlock Text="Saturday" Style="{StaticResource TextBlockGrid}"/>
+                            </Border>
+                        </Grid>
+                        <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+        </ListView>
+    </Grid>
+</UserControl>

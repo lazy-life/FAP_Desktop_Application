@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <BitmapImage x:Key="logo" UriSource="../Images/logo.PNG" />
+    <BitmapImage x:Key="logoImage" UriSource="../Images/logoImage.PNG" />
+    <BitmapImage x:Key="logoText" UriSource="../Images/logoText.PNG" />
     <BitmapImage x:Key="closeButton" UriSource="../Images/CloseButton.png" />
     <BitmapImage x:Key="avatar" UriSource="../Images/Avatar.jpg" />
     <BitmapImage x:Key="application" UriSource="../Images/application.png" />
@@ -15,4 +17,6 @@
     <BitmapImage x:Key="schedule" UriSource="../Images/schedule.png" />
     <BitmapImage x:Key="time" UriSource="../Images/time.png" />
     <BitmapImage x:Key="move" UriSource="../Images/move.png" />
+    <BitmapImage x:Key="background" UriSource="../Images/Bacground.png" />
+    <BitmapImage x:Key="backgroundWelcome" UriSource="../Images/BacgroundWelcome.png" />
 </ResourceDictionary>

@@ -10,6 +10,18 @@
     <Compile Update="Views\FAP_LOGIN_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\FAP_MANAGER_HOME_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FAP_PU_CONFIRM_EXIT_APP.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FAP_PU_LOGIN_FAIL_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FAP_PU_TEACHER_ATTENDANCE_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\FAP_STUDENT_ATTENDANCE_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,19 +31,22 @@
     <Compile Update="Views\FAP_TEACHER_HOME_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UserControll\FAP_UC_01View.xaml.cs">
+    <Compile Update="Views\FAP_UC_01View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UserControll\FAP_UC_02View.xaml.cs">
+    <Compile Update="Views\FAP_UC_02View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UserControll\FAP_UC_03View.xaml.cs">
+    <Compile Update="Views\FAP_UC_03View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UserControll\FAP_UC_04View.xaml.cs">
+    <Compile Update="Views\FAP_UC_04View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UserControll\FAP_UC_05View.xaml.cs">
+    <Compile Update="Views\FAP_UC_05View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FAP_Welcome_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -66,6 +81,9 @@
     <Page Update="Managers\Resource\ScrollView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Managers\Resource\StoryBoard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Managers\Resource\TextBlock.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -73,6 +91,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\FAP_LOGIN_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_MANAGER_HOME_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_PU_CONFIRM_EXIT_APP.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_PU_LOGIN_FAIL_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_PU_TEACHER_ATTENDANCE_View.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\FAP_STUDENT_ATTENDANCE_View.xaml">
@@ -84,19 +114,22 @@
     <Page Update="Views\FAP_TEACHER_HOME_View.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\UserControll\FAP_UC_01View.xaml">
+    <Page Update="Views\FAP_UC_01View.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\UserControll\FAP_UC_02View.xaml">
+    <Page Update="Views\FAP_UC_02View.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\UserControll\FAP_UC_03View.xaml">
+    <Page Update="Views\FAP_UC_03View.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\UserControll\FAP_UC_04View.xaml">
+    <Page Update="Views\FAP_UC_04View.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\UserControll\FAP_UC_05View.xaml">
+    <Page Update="Views\FAP_UC_05View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FAP_Welcome_View.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

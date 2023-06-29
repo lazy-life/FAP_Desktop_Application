@@ -82,7 +82,7 @@
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Border.CornerRadius" Value="20"/>
         <Setter Property="Border.BorderThickness" Value="0"/>
-        <Setter Property="Background" Value="{StaticResource Color29Brush}"/>
+        <Setter Property="Background" Value="{StaticResource Color53Brush}"/>
     </Style>
 
     <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle1}">

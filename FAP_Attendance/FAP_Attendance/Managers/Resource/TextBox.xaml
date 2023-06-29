@@ -4,7 +4,14 @@
         <ResourceDictionary Source="ColorGeneric.xaml" />
         <ResourceDictionary Source="Font.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
+
+    <Style x:Key="PasswordBoxStyle1" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Border.CornerRadius" Value="20"/>
+        <Setter Property="Border.BorderThickness" Value="0"/>
+    </Style>
+
+
     <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Border.CornerRadius" Value="20"/>

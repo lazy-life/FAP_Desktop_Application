@@ -61,6 +61,7 @@
     <Color x:Key="Color53">#f27227</Color>
     <Color x:Key="Color54">#fef1e9</Color>
     <Color x:Key="Color55">#f8fafb</Color>
+    <Color x:Key="Color57">#25adb5</Color>
 
     <SolidColorBrush x:Key="Color1Brush" Color="{StaticResource Color1}" />
     <SolidColorBrush x:Key="Color2Brush" Color="{StaticResource Color2}" />
@@ -91,7 +92,7 @@
     <SolidColorBrush x:Key="Color27Brush" Color="{StaticResource Color27}" />
     <SolidColorBrush x:Key="Color28Brush" Color="{StaticResource Color28}" />
     <SolidColorBrush x:Key="Color29Brush" Color="{StaticResource Color29}" />
-    <SolidColorBrush x:Key="Color29BrushOpacity" Color="{StaticResource Color29}" Opacity="0.05"/>
+    <SolidColorBrush x:Key="Color29BrushOpacity" Color="{StaticResource Color8}" Opacity="0.2"/>
     <SolidColorBrush x:Key="Color30Brush" Color="{StaticResource Color30}" />
     <SolidColorBrush x:Key="Color31Brush" Color="{StaticResource Color31}" />
     <SolidColorBrush x:Key="Color32Brush" Color="{StaticResource Color32}" />
@@ -112,6 +113,8 @@
     <SolidColorBrush x:Key="Color53Brush" Color="{StaticResource Color53}" />
     <SolidColorBrush x:Key="Color54Brush" Color="{StaticResource Color54}" />
     <SolidColorBrush x:Key="Color55Brush" Color="{StaticResource Color55}" />
+    <SolidColorBrush x:Key="Color56Brush" Color="{StaticResource Color53}" Opacity="0.7"/>
+    <SolidColorBrush x:Key="Color57Brush" Color="{StaticResource Color57}" />
 
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}" />

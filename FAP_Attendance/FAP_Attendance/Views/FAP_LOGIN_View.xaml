@@ -8,13 +8,15 @@
         mc:Ignorable="d"
         Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
         Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}"
-        Background="Orange"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         x:Name="FAP_LOGIN_Window">
     <Window.Resources>
         <ResourceDictionary Source="../Managers/Resource/MergeResource.xaml" />
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="{StaticResource background}" />
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -40,34 +42,39 @@
                                FontWeight="{StaticResource SemiBold}"/>
                 </Border>
 
-                <Border Grid.Row="2" BorderThickness="5" CornerRadius="20" Background="#FBFAFB" Margin="0 80 0 0">
-                    <TextBox Text="Hello">
-                        <TextBox.Style>
-                            <Style BasedOn="{StaticResource TextBoxStyle1}" TargetType="{x:Type TextBox}">
-                                <Setter Property="Margin" Value="10"/>
-                                <Setter Property="Padding" Value="10"/>
-                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
-                                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                <Setter Property="Border.CornerRadius" Value="20"/>
-                                <Setter Property="Background" Value="#FBFAFB"/>
-                            </Style>
-                        </TextBox.Style>
-                    </TextBox>
+                <Border Grid.Row="2" BorderThickness="1" CornerRadius="20" BorderBrush="{StaticResource Color29BrushOpacity}" Background="#FBFAFB" Margin="0 80 0 0">
+                    <Border BorderThickness="5" CornerRadius="20" Background="#FBFAFB">
+                        <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.Style>
+                                <Style BasedOn="{StaticResource TextBoxStyle1}" TargetType="{x:Type TextBox}">
+                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Padding" Value="10"/>
+                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Border.CornerRadius" Value="20"/>
+                                    <Setter Property="Background" Value="#FBFAFB"/>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                    </Border>
                 </Border>
 
-                <Border Grid.Row="3" BorderThickness="5" CornerRadius="20" Background="#FBFAFB" Margin="0 30 0 0">
-                    <TextBox Text="Hello">
-                        <TextBox.Style>
-                            <Style BasedOn="{StaticResource TextBoxStyle1}" TargetType="{x:Type TextBox}">
-                                <Setter Property="Margin" Value="10"/>
-                                <Setter Property="Padding" Value="10"/>
-                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
-                                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                <Setter Property="Border.CornerRadius" Value="20"/>
-                                <Setter Property="Background" Value="#FBFAFB"/>
-                            </Style>
-                        </TextBox.Style>
-                    </TextBox>
+                <Border Grid.Row="3" BorderThickness="1" CornerRadius="20" BorderBrush="{StaticResource Color29BrushOpacity}" Background="#FBFAFB" Margin="0 30 0 0">
+                    <Border BorderThickness="5" CornerRadius="20" Background="#FBFAFB">
+                        <PasswordBox PasswordChar="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                            <PasswordBox.Style>
+                                <Style TargetType="{x:Type PasswordBox}">
+                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Padding" Value="10"/>
+                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Border.CornerRadius" Value="20"/>
+                                    <Setter Property="Background" Value="#FBFAFB"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </PasswordBox.Style>
+                        </PasswordBox>
+                    </Border>
                 </Border>
                 <Border Grid.Row="4" Margin="0 50 0 0">
                     <Button Content="Login"
@@ -82,7 +89,8 @@
                     </Button>
                 </Border>
                 <Border Grid.Row="5" Margin="0 50 0 0">
-                    <Button Content="Exit">
+                    <Button Content="Exit"
+                            Command="{Binding ExitCommand}">
                         <Button.Style>
                             <Style BasedOn="{StaticResource ButtonStyle2}" TargetType="{x:Type Button}">
                                 <Setter Property="FontSize" Value="{StaticResource FontSize28}"/>

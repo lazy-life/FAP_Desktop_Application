@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FAP_Attendance.IViewModels;
+using FAP_Attendance.Managers;
+using FAP_Attendance.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,8 @@ namespace FAP_Attendance.Views
         public FAP_TEACHER_HOME_View()
         {
             InitializeComponent();
+            DataContext = Manager.Resolve<IFAP_TEACHER_HOME_ViewModel>();
+            (DataContext as FAP_TEACHER_HOME_ViewModel).RequestClose += (s, e) => this.Close();
         }
     }
 }

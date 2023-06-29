@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FAP_Attendance.IViewModels;
+using FAP_Attendance.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,7 @@ namespace FAP_Attendance.Views
         public FAP_LOGIN_View()
         {
             InitializeComponent();
+            DataContext = Manager.Resolve<IFAP_LOGIN_ViewModel>();
         }
     }
 }
