@@ -41,8 +41,8 @@ namespace FAP_Attendance.Views
         {
             InitializeComponent();
             DataContext = Manager.Resolve<IFAP_UC_01ViewModel>();
-            Name.Text = SessionData._User.Name.ToUpper();
-            Username.Text = SessionData._User.UserCode.ToUpper();
+            Name.Text = SessionData._User.Userfullname.ToUpper();
+            Username.Text = SessionData._User.Usernumber.ToUpper();
         }
         /// <summary>
         ///ImageClose_MouseLeftButtonDown method used to when click image close(x) then  window will be closed 
@@ -68,19 +68,19 @@ namespace FAP_Attendance.Views
             // Get a reference to the parent window
             Window parentWindow = Window.GetWindow(FAP_UC_01);
             var userLogin = SessionData._User;
-            if (userLogin.Role == 1)
+            if (userLogin.Userrole == 1)
             {
                 var fap_student_home = Manager.Resolve<FAP_STUDENT_HOME_View>();
                 Task.Delay(TimeSpan.FromSeconds(AppSetting.SCREEN_TRANSITION_WAITING_TIME));
                 fap_student_home.Show();
             }
-            if (userLogin.Role == 2)
+            if (userLogin.Userrole == 2)
             {
                 var fap_teacher_home = Manager.Resolve<FAP_TEACHER_HOME_View>();
                 Task.Delay(TimeSpan.FromSeconds(AppSetting.SCREEN_TRANSITION_WAITING_TIME));
                 fap_teacher_home.Show();
             }
-            if (userLogin.Role == 3)
+            if (userLogin.Userrole == 3)
             {
                 var fap_manager_home = Manager.Resolve<FAP_MANAGER_HOME_View>();
                 Task.Delay(TimeSpan.FromSeconds(AppSetting.SCREEN_TRANSITION_WAITING_TIME));

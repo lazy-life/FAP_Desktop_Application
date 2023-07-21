@@ -23,7 +23,7 @@ namespace FAP_Attendance.ViewModels
         #region Fields
         private ObservableCollection<TimeTable> _lstTimeTable = new ObservableCollection<TimeTable>();
         private ObservableCollection<WeeklyTimetable> _lstWeeklyTimeTable = new ObservableCollection<WeeklyTimetable>();
-        private ObservableCollection<Notice> _lstNotice = new ObservableCollection<Notice>();
+        private ObservableCollection<FapNotice> _lstNotice = new ObservableCollection<FapNotice>();
         #endregion Fields
 
         #region Properties
@@ -39,11 +39,12 @@ namespace FAP_Attendance.ViewModels
             set => SetProperty(ref _lstWeeklyTimeTable, value);
         }
 
-        public ObservableCollection<Notice> LstNotice
+        public ObservableCollection<FapNotice> LstNotice
         {
             get => _lstNotice;
             set => SetProperty(ref _lstNotice, value);
         }
+        public FapContext context;
         #endregion Properties
 
         #region Commands
@@ -56,7 +57,8 @@ namespace FAP_Attendance.ViewModels
             AttendanceReportCommand = new DelegateCommand<Window>(HandelAttendanceReportOnclick);
             LstTimeTable = new ObservableCollection<TimeTable>();
             LstWeeklyTimeTable = new ObservableCollection<WeeklyTimetable>();
-            LstNotice = new ObservableCollection<Notice>();
+            LstNotice = new ObservableCollection<FapNotice>();
+            context = new FapContext();
             LoadData();
         }
         #endregion Contractor
@@ -575,28 +577,10 @@ namespace FAP_Attendance.ViewModels
                 }
             }
 
-            LstNotice.Add(new Notice(1, "Mở lớp Bis Block 5 học kỳ Summer 2023",
-                "Phòng tổ chức và quản lý đào tạo thông báo về việc mở lớp Bis Block 5 học kỳ Summer 2023 dự kiến bắt đầu ngày 07/08/2023.", DateTime.Parse("11/09/2022")));
-
-            LstNotice.Add(new Notice(1, "Thông báo điểm thi kết thúc học phần lần 2 các môn KRL112, JPD216, JPD316 học kỳ Summer 2023",
-                "Phòng Khảo thí thông báo đã có điểm thi kết thúc học phần lần 2 các môn KRL112, JPD216, JPD316 học kỳ Summer 2023, " +
-                "các em đăng nhập FAP để xem điểm chi tiết.", DateTime.Parse("11/09/2022")));
-
-            LstNotice.Add(new Notice(1, "THÔNG BÁO HỌC PHÍ KỲ SUMMER 2023",
-                "Ban Kế toán gửi tới các bạn sinh viên thông tin về học phí kỳ SUMMER 2023 H2", DateTime.Parse("11/09/2022")));
-
-            LstNotice.Add(new Notice(1, "THÔNG BÁO HỌC PHÍ KỲ SUMMER 2023",
-                "Ban Kế toán gửi tới các bạn sinh viên thông tin về học phí kỳ SUMMER 2023 H2", DateTime.Parse("11/09/2022")));
-
-            LstNotice.Add(new Notice(1, "Thông báo lịch thi kết thúc học phần lần 1 và lần 2 các môn kết thúc sớm của học kỳ Summer 2023.",
-                "Phòng khảo thí thông báo đã có lịch thi kết thúc học phần lần 1 và lần 2 các môn kết thúc sớm của học kỳ Summer 2023. Các em đăng nhập fap.fpt.edu.vn (phần View exam schedule " +
-                "(Xem lịch thi) ) để xem lịch thi và phòng thi lần 1 của mình.", DateTime.Parse("11/09/2022")));
-
-            LstNotice.Add(new Notice(1, "THÔNG BÁO HỌC PHÍ KỲ SUMMER 2023",
-                "Ban Kế toán gửi tới các bạn sinh viên thông tin về học phí kỳ SUMMER 2023 H2", DateTime.Parse("11/09/2022")));
-
-            LstNotice.Add(new Notice(1, "THÔNG BÁO HỌC PHÍ KỲ SUMMER 2023",
-                "Ban Kế toán gửi tới các bạn sinh viên thông tin về học phí kỳ SUMMER 2023 H2", DateTime.Parse("11/09/2022")));
+            foreach (var notce in context.FapNotices.ToList())
+            {
+                LstNotice.Add(notce);
+            }
         }
         #endregion Methods
     }

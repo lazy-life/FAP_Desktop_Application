@@ -59,7 +59,7 @@ namespace FAP_Attendance.ViewModels
             AttendanceStudent.Add(new Attendance(
                 1,
                 DateTime.Parse("2023-6-19"),
-                SessionData._User.UserName,
+                SessionData._User.Usernumber,
                 "ChiLP",
                 1,
                 "PRN221",
@@ -69,7 +69,7 @@ namespace FAP_Attendance.ViewModels
             AttendanceStudent.Add(new Attendance(
                 2,
                 DateTime.Now,
-                SessionData._User.UserName,
+                SessionData._User.Usernumber,
                 "ChiLP",
                 2,
                 "PRN221",
@@ -78,7 +78,7 @@ namespace FAP_Attendance.ViewModels
             AttendanceStudent.Add(new Attendance(
                 3,
                 DateTime.Parse("2022-11-11"),
-                SessionData._User.UserName,
+                SessionData._User.Usernumber,
                 "ChiLP",
                 0,
                 "PRN221",
@@ -88,7 +88,7 @@ namespace FAP_Attendance.ViewModels
             AttendanceStudent.Add(new Attendance(
                 4,
                 DateTime.Parse("2022-12-11"),
-                SessionData._User.UserName,
+                SessionData._User.Usernumber,
                 "ChiLP",
                 1,
                 "PRN221",
@@ -97,7 +97,7 @@ namespace FAP_Attendance.ViewModels
             AttendanceStudent.Add(new Attendance(
                 5,
                 DateTime.Parse("2022-12-10"),
-                SessionData._User.UserName,
+                SessionData._User.Usernumber,
                 "ChiLP",
                 2,
                 "PRN221",

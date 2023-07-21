@@ -13,7 +13,7 @@ namespace PCS_APP
         /// <summary>
         /// Information of the active user on the system
         /// </summary>
-        public static User _User { get; set; }
+        public static FapUser _User { get; set; }
 
         
         
@@ -26,9 +26,9 @@ namespace PCS_APP
         {
             if(data != null) 
             {
-                if (typeof(User) == typeof(T))
+                if (typeof(FapUser) == typeof(T))
                 {
-                    _User = data as User;
+                    _User = data as FapUser;
                     return true;
                 }
                 else
@@ -42,7 +42,7 @@ namespace PCS_APP
         /// </summary>
         public static void ClearSession()
         {
-            _User = new User();
+            _User = new FapUser();
         }
     }
 }

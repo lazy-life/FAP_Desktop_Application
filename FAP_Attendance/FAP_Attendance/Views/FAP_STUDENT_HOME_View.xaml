@@ -390,7 +390,7 @@
                                                         </Style>
                                                     </Grid.Resources>
                                                     <Border Grid.Column="0" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="8 0 0 8" >
-                                                        <TextBlock Text="{Binding CreateAt, StringFormat='{}{0:dd-MM-yyyy}', Mode=TwoWay}" 
+                                                        <TextBlock Text="{Binding Logdate, StringFormat='{}{0:dd-MM-yyyy}', Mode=TwoWay}" 
                                                                    VerticalAlignment="Center" 
                                                                    HorizontalAlignment="Center"
                                                                    FontWeight="Medium"

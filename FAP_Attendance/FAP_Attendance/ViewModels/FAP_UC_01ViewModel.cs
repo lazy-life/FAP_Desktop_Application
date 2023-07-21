@@ -49,8 +49,8 @@ namespace FAP_Attendance.ViewModels
         private void HandleLogoutOnClick(Window window)
         {
             LogoutCommon(window);
-            Name = SessionData._User.Name.ToUpper();
-            Username = SessionData._User.UserName.ToUpper();
+            Name = SessionData._User.Userfullname.ToUpper();
+            Username = SessionData._User.Usernumber.ToUpper();
         }
 
         private void LogoutCommon(Window window)
