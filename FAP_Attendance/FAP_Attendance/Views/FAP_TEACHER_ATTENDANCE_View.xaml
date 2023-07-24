@@ -67,7 +67,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="20" Margin="10 0 0 0">
-                            <TextBlock Text="MAD101" 
+                            <TextBlock Text="{Binding Course}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"
@@ -102,7 +102,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="20" Margin="10 0 0 0">
-                            <TextBlock Text="DE-202" 
+                            <TextBlock Text="{Binding Room}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"
@@ -137,7 +137,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="50" Margin="10 0 0 0">
-                            <TextBlock Text="4" 
+                            <TextBlock Text="{Binding Slot}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"
@@ -172,7 +172,7 @@
                                     Background="{StaticResource Color54Brush}" 
                                     BorderThickness="2" 
                                     CornerRadius="20" Margin="10 0 10 0">
-                            <TextBlock Text="Wed 05/01/2023" 
+                            <TextBlock Text="{Binding Date, StringFormat='{}{0:dd MMMM yyyy}', Mode=TwoWay}" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Foreground="#48220c"

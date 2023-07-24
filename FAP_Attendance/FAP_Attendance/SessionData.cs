@@ -14,6 +14,7 @@ namespace PCS_APP
         /// Information of the active user on the system
         /// </summary>
         public static FapUser _User { get; set; }
+        public static TeacherTakeClass _TeacherTakeClass { get; set; }
 
         
         
@@ -31,6 +32,11 @@ namespace PCS_APP
                     _User = data as FapUser;
                     return true;
                 }
+                if (typeof(TeacherTakeClass) == typeof(T))
+                {
+                    _TeacherTakeClass = data as TeacherTakeClass;
+                    return true;
+                }
                 else
                     return false;
             }
@@ -43,6 +49,7 @@ namespace PCS_APP
         public static void ClearSession()
         {
             _User = new FapUser();
+            _TeacherTakeClass = new TeacherTakeClass();
         }
     }
 }

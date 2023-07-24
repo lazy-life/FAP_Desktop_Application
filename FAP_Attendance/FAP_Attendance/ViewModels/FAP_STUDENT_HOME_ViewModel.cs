@@ -3,6 +3,7 @@ using FAP_Attendance.IViewModels;
 using FAP_Attendance.Managers;
 using FAP_Attendance.Models;
 using FAP_Attendance.Views;
+using PCS_APP;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -80,13 +81,28 @@ namespace FAP_Attendance.ViewModels
 
         private void LoadData()
         {
-            LstTimeTable.Add(new TimeTable(1, "MAD101", 2, "12:50-14:20", "DE-203"));
-            LstTimeTable.Add(new TimeTable(1, "MAI101", 3, "12:50-14:20", "DE-203"));
-            LstTimeTable.Add(new TimeTable(2, "PRF101", 2, "12:50-14:20", "DE-203"));
-            LstTimeTable.Add(new TimeTable(3, "MAE101", 3, "12:50-14:20", "DE-203"));
-            LstTimeTable.Add(new TimeTable(4, "PRU101", 3, "12:50-14:20", "DE-203"));
-            LstTimeTable.Add(new TimeTable(4, "PRM101", 5, "12:50-14:20", "DE-203"));
-            LstTimeTable.Add(new TimeTable(5, "", 0, "", ""));
+            FapContext context = new FapContext();
+            FapStudent student = context.FapStudents.FirstOrDefault(x => x.Usid == SessionData._User.Userid);
+            List<FapTimetable> lstTimeTable = context.FapTimetables.Where(x => x.Studentid == student.Studentid).ToList();
+            foreach (var t in lstTimeTable)
+            {
+                TimeTable timetable = new TimeTable();
+                timetable.Slot = (int)t.Slotid;
+                timetable.Course = context.FapCourses.FirstOrDefault(x => x.Courseid == t.Courseid).Coursekey;
+                timetable.Days = (int)t.Dowid + 1;
+                FapSlot slot = context.FapSlots.FirstOrDefault(x => x.Slotid == t.Slotid);
+                timetable.Time = slot.Slotstart + "-" + slot.Slotend;
+                timetable.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == t.Roomid).Roomname;
+                LstTimeTable.Add(timetable);
+            }
+
+            //LstTimeTable.Add(new TimeTable(1, "MAD101", 2, "12:50-14:20", "DE-203"));
+            //LstTimeTable.Add(new TimeTable(1, "MAI101", 3, "12:50-14:20", "DE-203"));
+            //LstTimeTable.Add(new TimeTable(2, "PRF101", 2, "12:50-14:20", "DE-203"));
+            //LstTimeTable.Add(new TimeTable(3, "MAE101", 3, "12:50-14:20", "DE-203"));
+            //LstTimeTable.Add(new TimeTable(4, "PRU101", 3, "12:50-14:20", "DE-203"));
+            //LstTimeTable.Add(new TimeTable(4, "PRM101", 5, "12:50-14:20", "DE-203"));
+            //LstTimeTable.Add(new TimeTable(5, "", 0, "", ""));
             foreach (var item in LstTimeTable)
             {
                 WeeklyTimetable week = null;
@@ -97,7 +113,8 @@ namespace FAP_Attendance.ViewModels
                     {
                         week = new WeeklyTimetable();
                         week.Slot = 1;
-                        week.SlotTime = "11:20-13:30";
+                        week.SlotTime = item.Time;
+                        week.Room = item.Room;
                         if (item.Days == 2)
                         {
                             week.Monday = item.Course;
@@ -178,7 +195,8 @@ namespace FAP_Attendance.ViewModels
                     {
                         week = new WeeklyTimetable();
                         week.Slot = 2;
-                        week.SlotTime = "11:20-13:30";
+                        week.SlotTime = item.Time;
+                        week.Room = item.Room;
                         if (item.Days == 2)
                         {
                             week.Monday = item.Course;
@@ -259,7 +277,8 @@ namespace FAP_Attendance.ViewModels
                     {
                         week = new WeeklyTimetable();
                         week.Slot = 3;
-                        week.SlotTime = "11:20-13:30";
+                        week.SlotTime = item.Time;
+                        week.Room = item.Room;
                         if (item.Days == 2)
                         {
                             week.Monday = item.Course;
@@ -340,7 +359,8 @@ namespace FAP_Attendance.ViewModels
                     {
                         week = new WeeklyTimetable();
                         week.Slot = 4;
-                        week.SlotTime = "11:20-13:30";
+                        week.SlotTime = item.Time;
+                        week.Room = item.Room;
                         if (item.Days == 2)
                         {
                             week.Monday = item.Course;
@@ -421,7 +441,8 @@ namespace FAP_Attendance.ViewModels
                     {
                         week = new WeeklyTimetable();
                         week.Slot = 5;
-                        week.SlotTime = "11:20-13:30";
+                        week.SlotTime = item.Time;
+                        week.Room = item.Room;
                         if (item.Days == 2)
                         {
                             week.Monday = item.Course;
@@ -502,7 +523,8 @@ namespace FAP_Attendance.ViewModels
                     {
                         week = new WeeklyTimetable();
                         week.Slot = 6;
-                        week.SlotTime = "11:20-13:30";
+                        week.SlotTime = item.Time;
+                        week.Room = item.Room;
                         if (item.Days == 2)
                         {
                             week.Monday = item.Course;

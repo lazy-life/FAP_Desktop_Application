@@ -65,7 +65,6 @@
                                     <ColumnDefinition Width="4*" />
                                     <ColumnDefinition Width="2*" />
                                     <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.Resources>
                                     <Style TargetType="TextBlock">
@@ -167,7 +166,7 @@
                                         </Button.Style>
                                     </Button>
                                 </Border>
-                                <Border Grid.Column="5" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                <Border Grid.Column="5" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="0 8 8 0">
                                     <Button Command="{Binding DataContext.AbsentCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                             CommandParameter="{Binding}" >
                                         <Button.Style>
@@ -202,18 +201,6 @@
                                         </Button.Style>
                                     </Button>
                                 </Border>
-                                <Border Grid.Column="6" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="0 8 8 0" >
-                                    <TextBlock Text="{Binding AbsentDay, Mode=TwoWay}" >
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Width" Value="Auto"/>
-                                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                                <Setter Property="VerticalAlignment" Value="Center"/>
-                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </Border>
                             </Grid>
                         </StackPanel>
                     </Border>
@@ -235,7 +222,6 @@
                                 <ColumnDefinition Width="4*" />
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="0" Style="{StaticResource BorderGrid}" >
                                 <TextBlock Text="Number" Style="{StaticResource TextBlockGrid}"/>
@@ -254,9 +240,6 @@
                             </Border>
                             <Border Grid.Column="5" Style="{StaticResource BorderGrid}">
                                 <TextBlock Text="Absent" Style="{StaticResource TextBlockGrid}"/>
-                            </Border>
-                            <Border Grid.Column="6" Style="{StaticResource BorderGrid}">
-                                <TextBlock Text="Absent Days" Style="{StaticResource TextBlockGrid}"/>
                             </Border>
                         </Grid>
                         <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">

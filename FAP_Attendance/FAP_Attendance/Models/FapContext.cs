@@ -230,14 +230,16 @@ public partial class FapContext : DbContext
 
             entity.Property(e => e.Slotid).HasColumnName("slotid");
             entity.Property(e => e.Slotend)
-                .HasColumnType("datetime")
+                .HasMaxLength(10)
+                .IsUnicode(false)
                 .HasColumnName("slotend");
             entity.Property(e => e.Slotname)
                 .HasMaxLength(10)
                 .IsUnicode(false)
                 .HasColumnName("slotname");
             entity.Property(e => e.Slotstart)
-                .HasColumnType("datetime")
+                .HasMaxLength(10)
+                .IsUnicode(false)
                 .HasColumnName("slotstart");
         });
 
@@ -321,6 +323,7 @@ public partial class FapContext : DbContext
             entity.Property(e => e.Dowid).HasColumnName("dowid");
             entity.Property(e => e.Roomid).HasColumnName("roomid");
             entity.Property(e => e.Slotid).HasColumnName("slotid");
+            entity.Property(e => e.Courseid).HasColumnName("courseid");
             entity.Property(e => e.Studentid).HasColumnName("studentid");
             entity.Property(e => e.Teacherid).HasColumnName("teacherid");
             entity.Property(e => e.Timetabledate)

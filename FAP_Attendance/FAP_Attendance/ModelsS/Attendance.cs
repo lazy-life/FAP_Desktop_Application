@@ -17,6 +17,10 @@ namespace FAP_Attendance.Models
         public string RoomId { get; set; }
         public int SlotId { get; set; }
 
+        public Attendance()
+        {
+        }
+
         public Attendance(int attendanceId, DateTime attendanceDate, string studentId, string teacherId, int attendanceStatus, string courseId, string roomId, int slotId)
         {
             AttendanceId = attendanceId;

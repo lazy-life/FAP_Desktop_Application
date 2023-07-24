@@ -105,7 +105,7 @@
                                                 </Style>
                                             </TextBlock.Style>
                                         </TextBlock>
-                                        <TextBlock Text="DE-303">
+                                        <TextBlock Text="{Binding Room}">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
@@ -142,7 +142,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="(12:50-15:10)">
+                                            <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertSlotTime}}">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
@@ -168,7 +168,7 @@
                                                 </Style>
                                             </TextBlock.Style>
                                         </TextBlock>
-                                        <TextBlock Text="DE-303">
+                                        <TextBlock Text="{Binding Room}">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
@@ -205,7 +205,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="(12:50-15:10)">
+                                            <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertSlotTime}}">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
@@ -231,7 +231,7 @@
                                                 </Style>
                                             </TextBlock.Style>
                                         </TextBlock>
-                                        <TextBlock Text="DE-303">
+                                        <TextBlock Text="{Binding Room}">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
@@ -268,7 +268,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="(12:50-15:10)">
+                                            <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertSlotTime}}">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
@@ -294,7 +294,7 @@
                                                 </Style>
                                             </TextBlock.Style>
                                         </TextBlock>
-                                        <TextBlock Text="DE-303">
+                                        <TextBlock Text="{Binding Room}">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
@@ -331,7 +331,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="(12:50-15:10)">
+                                            <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertSlotTime}}">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
@@ -357,7 +357,7 @@
                                                 </Style>
                                             </TextBlock.Style>
                                         </TextBlock>
-                                        <TextBlock Text="DE-303">
+                                        <TextBlock Text="{Binding Room}">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
@@ -394,7 +394,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="(12:50-15:10)">
+                                            <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertSlotTime}}">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
@@ -420,7 +420,7 @@
                                                 </Style>
                                             </TextBlock.Style>
                                         </TextBlock>
-                                        <TextBlock Text="DE-303">
+                                        <TextBlock Text="{Binding Room}">
                                             <TextBlock.Style>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="Foreground" Value="{StaticResource Color1Brush}"/>
@@ -457,7 +457,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="(12:50-15:10)">
+                                            <TextBlock Text="{Binding Slot, Converter={StaticResource ConvertSlotTime}}">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>

@@ -11,6 +11,7 @@ namespace FAP_Attendance.Models
     {
         private int _status;
         public int Number { get; set; }
+        public int AttendanceId { get; set; }
         public string ClassName { get; set; }
         public string RollNumber { get; set; }
         public string  FullName { get; set; }
@@ -22,6 +23,10 @@ namespace FAP_Attendance.Models
             }
         }
         public int AbsentDay { get; set; }
+
+        public AttendanceStudent()
+        {
+        }
 
         public AttendanceStudent(int number, string className, string rollNumber, string fullName, int status, int absentDay)
         {

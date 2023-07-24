@@ -69,7 +69,7 @@ namespace FAP_Attendance.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FAP_Attendance;V1.0.0.0;component/views/fap_student_home_view.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FAP_Attendance;component/views/fap_student_home_view.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\FAP_STUDENT_HOME_View.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

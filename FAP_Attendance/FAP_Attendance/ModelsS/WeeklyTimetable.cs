@@ -16,8 +16,9 @@ namespace FAP_Attendance.Models
         public string Thursday { get; set; }
         public string Friday { get; set; }
         public string Saturday { get; set; }
+        public string Room { get; set; }
 
-        public WeeklyTimetable(int slot, string slotTime, string monday, string tuesday, string wednesday, string thursday, string friday, string saturday)
+        public WeeklyTimetable(int slot, string slotTime, string monday, string tuesday, string wednesday, string thursday, string friday, string saturday, string room)
         {
             Slot = slot;
             SlotTime = slotTime;
@@ -27,6 +28,7 @@ namespace FAP_Attendance.Models
             Thursday = thursday;
             Friday = friday;
             Saturday = saturday;
+            Room = room;
         }
 
         public WeeklyTimetable()

@@ -20,4 +20,5 @@ public partial class FapTimetable
     public int? Roomid { get; set; }
 
     public int? Dowid { get; set; }
+    public int? Courseid { get; set; }
 }

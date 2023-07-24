@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FAP_Attendance.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,14 @@ namespace FAP_Attendance.Views
     /// </summary>
     public partial class FAP_UC_04View : UserControl
     {
+        public static readonly DependencyProperty ItemsSourceProperty =
+    DependencyProperty.Register("ItemsSource", typeof(ObservableCollection<AttendanceStudent>), typeof(FAP_UC_04View), new PropertyMetadata(null));
+
+        public ObservableCollection<AttendanceStudent> ItemsSource
+        {
+            get { return (ObservableCollection<AttendanceStudent>)GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
+        }
         public FAP_UC_04View()
         {
             InitializeComponent();

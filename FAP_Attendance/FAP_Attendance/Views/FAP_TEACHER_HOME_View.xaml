@@ -436,7 +436,7 @@
 
                 <Border Grid.Row="1" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
                     <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
-                        <uc:FAP_UC_02View/>
+                        <uc:FAP_UC_02View ItemsSource="{Binding LstWeeklyTimeTable}"/>
                     </Border>
                 </Border>
 
@@ -468,7 +468,261 @@
 
                 <Border Grid.Row="3" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
                     <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
-                        <uc:FAP_UC_04View/>
+                        <!--Code to show Subject can attendance-->
+                        <ListView Style="{StaticResource ListViewTitle}" SelectedItem="{Binding SelectedTeacher}" x:Name="MyListView" Height="340" ItemsSource="{Binding ListClassTakeAttendance}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border x:Name="border" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                                    <ContentPresenter />
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                                    </Trigger>
+                                                    <MultiTrigger>
+                                                        <MultiTrigger.Conditions>
+                                                            <Condition Property="IsSelected" Value="True" />
+                                                            <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                                        </MultiTrigger.Conditions>
+                                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                                    </MultiTrigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderThickness" Value="3" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                 Value="True">
+                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                        <Setter Property="CornerRadius" Value="8" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Grid Width="1200" VerticalAlignment="Center" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.Resources>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Margin" Value="5,10" />
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                    </Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="BorderThickness" Value="1" />
+                                                        <Setter Property="BorderBrush" Value="DarkGray" />
+                                                        <Setter Property="Background" Value="white" />
+                                                    </Style>
+                                                </Grid.Resources>
+                                                <Border Grid.Column="0" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="8 0 0 8" >
+                                                    <TextBlock Text="{Binding Slot, Mode=TwoWay}" >
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Width" Value="Auto"/>
+                                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                    <TextBlock Text="{Binding StartTime}" >
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Width" Value="Auto"/>
+                                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="2" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                    <TextBlock Text="{Binding EndTime}">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Width" Value="Auto"/>
+                                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="3" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                    <TextBlock Text="{Binding Subject, Mode=TwoWay}" >
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Width" Value="Auto"/>
+                                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="4" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                    <TextBlock Text="{Binding ClassName, Mode=TwoWay}" >
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Width" Value="Auto"/>
+                                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="5" BorderThickness="1" CornerRadius="0 8 8 0"  BorderBrush="{StaticResource Color53Brush}">
+                                                    <TextBlock Text="{Binding Room, Mode=TwoWay}" >
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="Width" Value="Auto"/>
+                                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="6" BorderThickness="0" Background="{StaticResource Color54Brush}">
+                                                    <Button Command="{Binding DataContext.GetSelectedItem, 
+                        RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                        CommandParameter="{Binding}">
+                                                        <Button.Style>
+                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle1}">
+                                                                <Setter Property="Content" Value="Take"/>
+                                                                <Setter Property="Background" Value="{StaticResource Color50Brush}"/>
+                                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                                <Setter Property="Height" Value="55"/>
+                                                                <Setter Property="Width" Value="150"/>
+                                                                <Setter Property="Margin" Value="10 0 0 0"/>
+                                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                <Setter Property="Template">
+                                                                    <Setter.Value>
+                                                                        <ControlTemplate TargetType="{x:Type Button}">
+                                                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="10">
+                                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                            </Border>
+                                                                        </ControlTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Status, Converter={StaticResource ConvertAttendanceStatus}}" Value="Attended">
+                                                                    </DataTrigger>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter Property="Background" Value="{StaticResource Color53Brush}"/>
+                                                                    </Trigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Button.Style>
+                                                    </Button>
+                                                </Border>
+                                            </Grid>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Template>
+                                <ControlTemplate>
+
+                                    <Grid HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Margin="0 0 0 10" Width="1200" VerticalAlignment="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0" Style="{StaticResource BorderGrid}" 
+                                                BorderThickness="1 1 0 1" 
+                                                CornerRadius="10 0 0 10" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Slot" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                            <Border Grid.Column="1" Style="{StaticResource BorderGrid}"
+                                                BorderThickness="0 1 0 1" 
+                                                CornerRadius="0" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Start" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                            <Border Grid.Column="2" Style="{StaticResource BorderGrid}"
+                                                BorderThickness="0 1 0 1" 
+                                                CornerRadius="0" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="End" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                            <Border Grid.Column="3" Style="{StaticResource BorderGrid}"
+                                                BorderThickness="0 1 0 1" 
+                                                CornerRadius="0" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Course" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                            <Border Grid.Column="4" Style="{StaticResource BorderGrid}"
+                                                BorderThickness="0 1 0 1" 
+                                                CornerRadius="0" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Group" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                            <Border Grid.Column="5" Style="{StaticResource BorderGrid}"
+                                                BorderThickness="0 1 0 1" 
+                                                CornerRadius="0" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Room" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                            <Border Grid.Column="6" Style="{StaticResource BorderGrid}"
+                                                BorderThickness="0 1 1 1" 
+                                                CornerRadius="0 10 10 0" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Action" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                        </Grid>
+                                        <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">
+                                            <ItemsPresenter />
+                                        </ScrollViewer>
+                                    </Grid>
+                                </ControlTemplate>
+                            </ListView.Template>
+
+                        </ListView>
                     </Border>
                 </Border>
             </Grid>

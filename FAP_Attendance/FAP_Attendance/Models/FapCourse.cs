@@ -15,4 +15,5 @@ public partial class FapCourse
 
     public int? Totalslot { get; set; }
     public string Coursekey { get; set; }
+    public int CourseSemester { get; set; }
 }

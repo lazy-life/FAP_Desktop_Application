@@ -14,6 +14,10 @@ namespace FAP_Attendance.Models
         public string Time { get; set; }
         public string Room { get; set; }
 
+        public TimeTable()
+        {
+        }
+
         public TimeTable(int slot, string course, int days, string time, string room)
         {
             Slot = slot;

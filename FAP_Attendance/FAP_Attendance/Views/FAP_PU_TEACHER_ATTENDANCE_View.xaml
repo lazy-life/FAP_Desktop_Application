@@ -129,7 +129,7 @@
                                                 </TextBlock>
                                             </Border>
                                             <Border Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
-                                                <TextBlock Text="{Binding Start, StringFormat='{}{0:hh\\:mm}', Mode=TwoWay}" >
+                                                <TextBlock Text="{Binding StartTime}" >
                                                     <TextBlock.Style>
                                                         <Style TargetType="{x:Type TextBlock}">
                                                             <Setter Property="Width" Value="Auto"/>
@@ -142,7 +142,7 @@
                                                 </TextBlock>
                                             </Border>
                                             <Border Grid.Column="2" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
-                                                <TextBlock Text="{Binding End, StringFormat='{}{0:hh\\:mm}', Mode=TwoWay}">
+                                                <TextBlock Text="{Binding EndTime}">
                                                     <TextBlock.Style>
                                                         <Style TargetType="{x:Type TextBlock}">
                                                             <Setter Property="Width" Value="Auto"/>

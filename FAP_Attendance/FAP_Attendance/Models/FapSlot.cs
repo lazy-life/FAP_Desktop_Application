@@ -9,7 +9,7 @@ public partial class FapSlot
 
     public string Slotname { get; set; }
 
-    public DateTime? Slotstart { get; set; }
+    public string Slotstart { get; set; }
 
-    public DateTime? Slotend { get; set; }
+    public string Slotend { get; set; }
 }
