@@ -13,6 +13,7 @@ namespace FAP_Attendance.Models
         public int Number { get; set; }
         public int AttendanceId { get; set; }
         public string ClassName { get; set; }
+        public string CourseName { get; set; }
         public string RollNumber { get; set; }
         public string  FullName { get; set; }
         public int Status {

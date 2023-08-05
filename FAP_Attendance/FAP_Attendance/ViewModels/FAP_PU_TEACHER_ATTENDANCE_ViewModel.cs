@@ -103,19 +103,19 @@ namespace FAP_Attendance.ViewModels
                                     .ToList();
             foreach (var tt in distinctTimeTables)
             {
-                TeacherTakeClass teacherTake = new TeacherTakeClass();
-                teacherTake.Slot = (int)tt.Slotid;
-                teacherTake.StartTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotstart;
-                teacherTake.EndTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotend;
-                teacherTake.Subject = context.FapCourses.FirstOrDefault(x => x.Courseid == tt.Courseid).Coursekey;
-                teacherTake.ClassName = context.FapClasses.FirstOrDefault(x => x.Classid == tt.Classid).Classname;
-                teacherTake.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == tt.Roomid).Roomname;
-                teacherTake.Start = (DateTime)tt.Timetabledate;
-                ListClassTakeAttendance.Add(teacherTake);
+                if (tt.Timetabledate.HasValue && tt.Timetabledate.Value.Date == DateTime.Today)
+                {
+                    TeacherTakeClass teacherTake = new TeacherTakeClass();
+                    teacherTake.Slot = (int)tt.Slotid;
+                    teacherTake.StartTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotstart;
+                    teacherTake.EndTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotend;
+                    teacherTake.Subject = context.FapCourses.FirstOrDefault(x => x.Courseid == tt.Courseid).Coursekey;
+                    teacherTake.ClassName = context.FapClasses.FirstOrDefault(x => x.Classid == tt.Classid).Classname;
+                    teacherTake.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == tt.Roomid).Roomname;
+                    teacherTake.Start = (DateTime)tt.Timetabledate;
+                    ListClassTakeAttendance.Add(teacherTake);
+                }
             }
-            //ListClassTakeAttendance.Add(new TeacherTakeClass(1, DateTime.Now, DateTime.Now, "PRU221m", "SE1612", "DE-203"));
-            //ListClassTakeAttendance.Add(new TeacherTakeClass(2, DateTime.Now, DateTime.Now, "PRM321", "SE1614", "DE-203"));
-            //ListClassTakeAttendance.Add(new TeacherTakeClass(3, DateTime.Now, DateTime.Now, "PRF192", "SE1619", "DE-203"));
         }
 
         public event EventHandler RequestClose;

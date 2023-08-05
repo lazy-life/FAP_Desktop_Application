@@ -54,18 +54,11 @@
                 <Border Grid.Row="1" Margin="0 20 0 0" BorderBrush="{StaticResource Color53Brush}" BorderThickness="1" CornerRadius="20">
                     <Border BorderThickness="7" BorderBrush="{StaticResource Color54Brush}" CornerRadius="20" 
                             Background="{StaticResource Color55Brush}">
-                        <ComboBox Grid.Column="1" Height="30" Width="250" >
-                            <ComboBoxItem Name="Item1">Item1</ComboBoxItem>
-                            <ComboBoxItem Name="Item2">Item2</ComboBoxItem>
-                            <ComboBoxItem Name="Item3">Item3</ComboBoxItem>
-                            <ComboBoxItem Name="Item4">Item4</ComboBoxItem>
-                            <ComboBoxItem Name="Item5">Item5</ComboBoxItem>
-                            <ComboBoxItem Name="Item6">Item6</ComboBoxItem>
-                            <ComboBoxItem Name="Item7">Item7</ComboBoxItem>
-                            <ComboBoxItem Name="Item8">Item8</ComboBoxItem>
-                            <ComboBoxItem Name="Item9">Item9</ComboBoxItem>
-                            <ComboBoxItem Name="Item10">Item10</ComboBoxItem>
-                            <ComboBoxItem Name="Item11">Item11</ComboBoxItem>
+                        <ComboBox Grid.Column="1" Height="30" Width="250" SelectedIndex="0">
+                            <ComboBoxItem Name="Item1">SUMMER 2023</ComboBoxItem>
+                            <ComboBoxItem Name="Item2">FALL 2023</ComboBoxItem>
+                            <ComboBoxItem Name="Item3">SPRING 2024</ComboBoxItem>
+                            <ComboBoxItem Name="Item4">SUMMER 2024</ComboBoxItem>
                         </ComboBox>
                     </Border>
                 </Border>
@@ -85,7 +78,187 @@
                         BorderThickness="1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="20" Padding="10"
                         Margin="0 30 0 0">
                     <StackPanel Orientation="Vertical">
-                        <Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
+                        <ListView Style="{StaticResource ListViewTitle}" SelectedItem="{Binding SelectedCourse}" x:Name="MyListView" Height="Auto" ItemsSource="{Binding CourseList}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border x:Name="border" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                                    <ContentPresenter />
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                                    </Trigger>
+                                                    <MultiTrigger>
+                                                        <MultiTrigger.Conditions>
+                                                            <Condition Property="IsSelected" Value="True" />
+                                                            <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                                        </MultiTrigger.Conditions>
+                                                        <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                                    </MultiTrigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderThickness" Value="3" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                 Value="True">
+                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                        <Setter Property="CornerRadius" Value="8" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Grid Width="Auto" VerticalAlignment="Center" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.Resources>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Margin" Value="5,10" />
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                    </Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="BorderThickness" Value="1" />
+                                                        <Setter Property="BorderBrush" Value="DarkGray" />
+                                                        <Setter Property="Background" Value="white" />
+                                                    </Style>
+                                                </Grid.Resources>
+
+                                                <Border Grid.Column="0" BorderThickness="0" Background="{StaticResource Color54Brush}">
+                                                    <Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
+                            Margin="10 10 10 10" Height="120px" Width="450px" BorderThickness="1" CornerRadius="20" Padding="20 20">
+                                                        <StackPanel Orientation="Vertical">
+                                                            <TextBlock Text="{Binding CourseName}">
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="{x:Type TextBlock}">
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+
+                                                            <TextBlock Text="{Binding CourseKey}">
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="{x:Type TextBlock}">
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                                        <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                                        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Border>
+                                            </Grid>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Template>
+                                <ControlTemplate>
+
+                                    <Grid HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Margin="0 0 0 10" Width="Auto" VerticalAlignment="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0" Style="{StaticResource BorderGrid}" 
+                                                BorderThickness="1" 
+                                                CornerRadius="10" 
+                                                BorderBrush="{StaticResource Color53Brush}">
+                                                <TextBlock Text="Course" Style="{StaticResource TextBlockGrid}"/>
+                                            </Border>
+                                        </Grid>
+                                        <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">
+                                            <ItemsPresenter />
+                                        </ScrollViewer>
+                                    </Grid>
+                                </ControlTemplate>
+                            </ListView.Template>
+
+                        </ListView>
+                        <!--<ListView ItemsSource="{Binding CourseList}">
+                            <Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
+                            Margin="10 10 10 10" Height="Auto" BorderThickness="1" CornerRadius="20" Padding="20 20">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding CourseName}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
+                                                <Setter Property="FontWeight" Value="Medium"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <TextBlock Text="{Binding CourseKey}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>-->
+
+                        <!--<TextBlock Text="SE1619-NET">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Start">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Text=" 08/05/2023">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
+                                                    <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>-->
+                        <!--</StackPanel>
+                            </Border>
+                        </ListView>-->
+
+                        <!--<Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
                             Margin="10 10 10 10" Height="Auto" BorderThickness="1" CornerRadius="20" Padding="20 20">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="Group Experiential Entrepreneurship 1">
@@ -141,65 +314,7 @@
                                 </StackPanel>
                             </StackPanel>
 
-                        </Border>
-
-                        <Border BorderBrush="{StaticResource Color53Brush}" Background="{StaticResource Color53Brush}"
-                            Margin="10 10 10 10" Height="Auto" BorderThickness="1" CornerRadius="20" Padding="20 20">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="Group Experiential Entrepreneurship 1">
-                                    <TextBlock.Style>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
-                                            <Setter Property="FontWeight" Value="Medium"/>
-                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-
-                                <TextBlock Text="PRU211m">
-                                    <TextBlock.Style>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
-                                            <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
-                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-
-                                <TextBlock Text="SE1619-NET">
-                                    <TextBlock.Style>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
-                                            <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
-                                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Start">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
-                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
-                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-
-                                    <TextBlock Text=" 08/05/2023">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
-                                                <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
-                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
-                                </StackPanel>
-                            </StackPanel>
-
-                        </Border>
+                        </Border>-->
                     </StackPanel>
                 </Border>
             </Grid>

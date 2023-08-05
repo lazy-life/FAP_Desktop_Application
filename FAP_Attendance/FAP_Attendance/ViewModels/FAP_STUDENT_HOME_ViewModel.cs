@@ -86,23 +86,19 @@ namespace FAP_Attendance.ViewModels
             List<FapTimetable> lstTimeTable = context.FapTimetables.Where(x => x.Studentid == student.Studentid).ToList();
             foreach (var t in lstTimeTable)
             {
-                TimeTable timetable = new TimeTable();
-                timetable.Slot = (int)t.Slotid;
-                timetable.Course = context.FapCourses.FirstOrDefault(x => x.Courseid == t.Courseid).Coursekey;
-                timetable.Days = (int)t.Dowid + 1;
-                FapSlot slot = context.FapSlots.FirstOrDefault(x => x.Slotid == t.Slotid);
-                timetable.Time = slot.Slotstart + "-" + slot.Slotend;
-                timetable.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == t.Roomid).Roomname;
-                LstTimeTable.Add(timetable);
+                
+                    TimeTable timetable = new TimeTable();
+                    timetable.Slot = (int)t.Slotid;
+                    timetable.Course = context.FapCourses.FirstOrDefault(x => x.Courseid == t.Courseid).Coursekey;
+                    timetable.Days = (int)t.Dowid + 1;
+                    FapSlot slot = context.FapSlots.FirstOrDefault(x => x.Slotid == t.Slotid);
+                    timetable.Time = slot.Slotstart + "-" + slot.Slotend;
+                    timetable.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == t.Roomid).Roomname;
+                    LstTimeTable.Add(timetable);
+                
+
             }
 
-            //LstTimeTable.Add(new TimeTable(1, "MAD101", 2, "12:50-14:20", "DE-203"));
-            //LstTimeTable.Add(new TimeTable(1, "MAI101", 3, "12:50-14:20", "DE-203"));
-            //LstTimeTable.Add(new TimeTable(2, "PRF101", 2, "12:50-14:20", "DE-203"));
-            //LstTimeTable.Add(new TimeTable(3, "MAE101", 3, "12:50-14:20", "DE-203"));
-            //LstTimeTable.Add(new TimeTable(4, "PRU101", 3, "12:50-14:20", "DE-203"));
-            //LstTimeTable.Add(new TimeTable(4, "PRM101", 5, "12:50-14:20", "DE-203"));
-            //LstTimeTable.Add(new TimeTable(5, "", 0, "", ""));
             foreach (var item in LstTimeTable)
             {
                 WeeklyTimetable week = null;

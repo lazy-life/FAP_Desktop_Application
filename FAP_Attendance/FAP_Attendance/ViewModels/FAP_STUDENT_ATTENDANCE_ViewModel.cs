@@ -14,16 +14,29 @@ namespace FAP_Attendance.ViewModels
     {
         #region Fields
         private ObservableCollection<Attendance> _attendanceStudent;
+        private ObservableCollection<Course> _courseList;
+        private Course _selectedCourse;
         private int _absentSlot;
         private int _presentSlot;
         private int _totalSlot;
         #endregion Fields
 
         #region Properties
+
+        public Course SelectedCourse
+        {
+            get => _selectedCourse;
+            set => SetProperty(ref _selectedCourse, value, () => LoadCourseAttendance());
+        }
         public ObservableCollection<Attendance> AttendanceStudent
         {
             get => _attendanceStudent;
             set => SetProperty(ref _attendanceStudent, value);
+        }
+        public ObservableCollection<Course> CourseList
+        {
+            get => _courseList;
+            set => SetProperty(ref _courseList, value);
         }
 
         public int AbsentSlot
@@ -49,10 +62,12 @@ namespace FAP_Attendance.ViewModels
         public FAP_STUDENT_ATTENDANCE_ViewModel()
         {
             AttendanceStudent = new ObservableCollection<Attendance>();
+            CourseList = new ObservableCollection<Course>();
             AbsentSlot = 0;
             PresentSlot = 0;
             TotalSlot = 0;
             InitData();
+            InitDataCourse();
         }
         #endregion Contractors
 
@@ -62,7 +77,8 @@ namespace FAP_Attendance.ViewModels
             FapContext context = new FapContext();
             int idAttendance = 1;
             FapStudent student = context.FapStudents.FirstOrDefault(x => x.Usid == SessionData._User.Userid);
-            List<FapAttendance> lstAttendance = context.FapAttendances.Where(x => x.Studentid == student.Studentid).ToList();
+            FapCourse course = context.FapCourses.FirstOrDefault(x => x.CourseSemester == student.Studentsemester);
+            List<FapAttendance> lstAttendance = context.FapAttendances.Where(x => x.Studentid == student.Studentid && x.Courseid == course.Courseid).ToList();
             foreach (var at in lstAttendance)
             {
                 Attendance attent = new Attendance();
@@ -77,53 +93,60 @@ namespace FAP_Attendance.ViewModels
                 attent.SlotId = (int)at.Slotid;
                 AttendanceStudent.Add(attent);
             }
-            //AttendanceStudent.Add(new Attendance(
-            //    1,
-            //    DateTime.Parse("2023-6-19"),
-            //    SessionData._User.Usernumber,
-            //    "ChiLP",
-            //    1,
-            //    "PRN221",
-            //    "DE-123",
-            //    1));
 
-            //AttendanceStudent.Add(new Attendance(
-            //    2,
-            //    DateTime.Now,
-            //    SessionData._User.Usernumber,
-            //    "ChiLP",
-            //    2,
-            //    "PRN221",
-            //    "DE-123",
-            //    2));
-            //AttendanceStudent.Add(new Attendance(
-            //    3,
-            //    DateTime.Parse("2022-11-11"),
-            //    SessionData._User.Usernumber,
-            //    "ChiLP",
-            //    0,
-            //    "PRN221",
-            //    "DE-123",
-            //    1));
+            foreach (var item in AttendanceStudent)
+            {
+                if (item.AttendanceStatus == 1)
+                {
+                    PresentSlot++;
+                }
+                if (item.AttendanceStatus == 2)
+                {
+                    AbsentSlot++;
+                }
+            }
+            TotalSlot = AttendanceStudent.Count;
+        }
 
-            //AttendanceStudent.Add(new Attendance(
-            //    4,
-            //    DateTime.Parse("2022-12-11"),
-            //    SessionData._User.Usernumber,
-            //    "ChiLP",
-            //    1,
-            //    "PRN221",
-            //    "DE-123",
-            //    1));
-            //AttendanceStudent.Add(new Attendance(
-            //    5,
-            //    DateTime.Parse("2022-12-10"),
-            //    SessionData._User.Usernumber,
-            //    "ChiLP",
-            //    2,
-            //    "PRN221",
-            //    "DE-123",
-            //    1));
+        private void InitDataCourse()
+        {
+            FapContext context = new FapContext();
+            FapStudent student = context.FapStudents.FirstOrDefault(x => x.Usid == SessionData._User.Userid);
+            List<FapCourse> lstCourse = context.FapCourses.Where(x => x.CourseSemester == student.Studentsemester).ToList();
+            foreach (var c in lstCourse)
+            {
+                Course course = new Course();
+                course.CourseId = c.Courseid;
+                course.CourseName = c.Coursename;
+                course.CourseKey = c.Coursekey;
+                CourseList.Add(course);
+            }
+        }
+
+        private void LoadCourseAttendance()
+        {
+            AttendanceStudent.Clear();
+            FapContext context = new FapContext();
+            int idAttendance = 1;
+            PresentSlot = 0;
+            AbsentSlot = 0;
+            TotalSlot = 0;
+            FapStudent student = context.FapStudents.FirstOrDefault(x => x.Usid == SessionData._User.Userid);
+            List<FapAttendance> lstAttendance = context.FapAttendances.Where(x => x.Studentid == student.Studentid && x.Courseid == SelectedCourse.CourseId).ToList();
+            foreach (var at in lstAttendance)
+            {
+                Attendance attent = new Attendance();
+                attent.AttendanceId = idAttendance++;
+                attent.AttendanceDate = (DateTime)at.Attendancedate;
+                attent.StudentId = SessionData._User.Usernumber;
+                FapTeacher teacher = context.FapTeachers.FirstOrDefault(x => x.Teacherid == at.Teacherid);
+                attent.TeacherId = context.FapUsers.FirstOrDefault(x => x.Userid == teacher.Usid).Userfullname;
+                attent.AttendanceStatus = (int)at.Attendancestatus;
+                attent.CourseId = context.FapCourses.FirstOrDefault(x => x.Courseid == at.Courseid).Coursekey;
+                attent.RoomId = context.FapRooms.FirstOrDefault(x => x.Roomid == at.Roomid).Roomname;
+                attent.SlotId = (int)at.Slotid;
+                AttendanceStudent.Add(attent);
+            }
 
             foreach (var item in AttendanceStudent)
             {

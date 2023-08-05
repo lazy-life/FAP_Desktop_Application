@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FAP_Attendance.Views"
         xmlns:uc="clr-namespace:FAP_Attendance.Views"
         mc:Ignorable="d"
-        Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" 
+        Width="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}"
         Height="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -94,7 +94,7 @@
 
                 <!--Row 1 and Column 1-->
                 <Border Grid.Row="1" Grid.Column="1">
-                    <Button>
+                    <Button Command="{Binding ViewClassCommand}" CommandParameter="{Binding ElementName=FAP_MANAGER_HOME_Window}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle3}">
                                 <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
@@ -390,7 +390,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Row="0" Grid.ColumnSpan="2">
-                    <TextBlock Text="Weekly Schedule">
+                    <TextBlock Text="Edit Attendance Student">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
@@ -400,41 +400,351 @@
                     </TextBlock>
                 </Border>
 
-                <Border Grid.Row="1" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
+                <Border Grid.RowSpan="2" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 50 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
                     <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
-                        <uc:FAP_UC_02View/>
-                    </Border>
-                </Border>
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
 
-                <Border Grid.Row="2" Grid.Column="0" Margin="0 50 0 0">
-                    <TextBlock Text="Today Activity">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="FontSize" Value="{StaticResource FontSize22}"/>
-                                <Setter Property="FontWeight" Value="{StaticResource Bold}"/>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Border>
+                                <Border Grid.Row="0" Grid.Column="0" Margin="10 20 0 0" BorderThickness="1" BorderBrush="Silver" CornerRadius="10" VerticalAlignment="Center">
+                                    <Border BorderThickness="5" BorderBrush="White" CornerRadius="10">
+                                        <TextBox Text="{Binding Rollnumber}">
+                                            <TextBox.Style>
+                                                <Style TargetType="{x:Type TextBox}">
+                                                    <Setter Property="Height" Value="30"/>
+                                                    <Setter Property="Width" Value="Auto"/>
+                                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                                    <Setter Property="Padding" Value="0 0 0 0"/>
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                </Style>
+                                            </TextBox.Style>
+                                        </TextBox>
+                                    </Border>
+                                </Border>
 
-                <Border Grid.Row="2" Grid.Column="1" Margin="0 50 30 0" HorizontalAlignment="Right" >
-                    <StackPanel Orientation="Horizontal" Margin="40 0 0 0">
-                        <TextBlock Text="See All">
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
-                                    <Setter Property="FontWeight" Value="{StaticResource Normal}"/>
-                                    <Setter Property="Foreground" Value="{StaticResource Color53Brush}"/>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                        <Image Source="{StaticResource move}" Width="20" Margin="10 0 0 0"/>
-                    </StackPanel>
-                </Border>
+                                <Border Grid.Row="0" Grid.Column="1" 
+                        BorderBrush="{StaticResource Color53Brush}" 
+                        BorderThickness="1" 
+                        Margin="10 20 10 0"
+                        CornerRadius="10">
+                                    <Button Command="{Binding SearchStudentCommand}">
+                                        <Button.Style>
+                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle1}">
+                                                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                                                <Setter Property="Height" Value="40"/>
+                                                <Setter Property="Width" Value="Auto"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type Button}">
+                                                            <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="10">
+                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="{StaticResource Color54Brush}"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="Search Student" VerticalAlignment="Center" Foreground="{StaticResource Color53Brush}" Style="{StaticResource TextBlockStyle2}"/>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
 
-                <Border Grid.Row="3" Grid.ColumnSpan="2" Width="Auto" Height="Auto" Margin="0 20 20 0" CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Color53Brush}">
-                    <Border BorderThickness="6" BorderBrush="{StaticResource WhiteBrush}" CornerRadius="20">
-                        <uc:FAP_UC_04View/>
+                                <!--//liist-->
+                                <ListView Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource ListViewTitle}" Height="800" x:Name="MyListView" 
+                  ItemsSource="{Binding ListAttendance}" >
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                        <Border x:Name="border" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                                            <ContentPresenter />
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsSelected" Value="True">
+                                                                <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                                            </Trigger>
+                                                            <MultiTrigger>
+                                                                <MultiTrigger.Conditions>
+                                                                    <Condition Property="IsSelected" Value="True" />
+                                                                    <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                                                </MultiTrigger.Conditions>
+                                                                <Setter TargetName="border" Property="BorderBrush" Value="#fee9d4"/>
+                                                            </MultiTrigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="BorderThickness" Value="3" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"
+                                                 Value="True">
+                                                                <Setter Property="BorderBrush" Value="Transparent" />
+                                                                <Setter Property="CornerRadius" Value="8" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Grid Width="1200" Height="70" VerticalAlignment="Center" Margin="0 5 0 0">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="1.5*" />
+                                                            <ColumnDefinition Width="2*" />
+                                                            <ColumnDefinition Width="2*" />
+                                                            <ColumnDefinition Width="4*" />
+                                                            <ColumnDefinition Width="2*" />
+                                                            <ColumnDefinition Width="2*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.Resources>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Margin" Value="5,10" />
+                                                                <Setter Property="Foreground" Value="Black" />
+                                                            </Style>
+                                                            <Style TargetType="Border">
+                                                                <Setter Property="BorderThickness" Value="1" />
+                                                                <Setter Property="BorderBrush" Value="DarkGray" />
+                                                                <Setter Property="Background" Value="white" />
+                                                            </Style>
+                                                        </Grid.Resources>
+                                                        <Border Grid.Column="0" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="8 0 0 8" >
+                                                            <TextBlock Text="{Binding CourseName, Mode=TwoWay}">
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="{x:Type TextBlock}">
+                                                                        <Setter Property="Width" Value="Auto"/>
+                                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <Border Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                            <TextBlock Text="{Binding ClassName, Mode=TwoWay}" >
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="{x:Type TextBlock}">
+                                                                        <Setter Property="Width" Value="Auto"/>
+                                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <Border Grid.Column="2" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                            <TextBlock Text="{Binding RollNumber, Mode=TwoWay}" >
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="{x:Type TextBlock}">
+                                                                        <Setter Property="Width" Value="Auto"/>
+                                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <Border Grid.Column="3" BorderThickness="1 1 0 1" 
+                                        BorderBrush="{StaticResource Color53Brush}">
+                                                            <Border Width="200" BorderThickness="0" HorizontalAlignment="Center">
+                                                                <TextBlock Text="{Binding FullName, Mode=TwoWay}" >
+                                                                    <TextBlock.Style>
+                                                                        <Style TargetType="{x:Type TextBlock}">
+                                                                            <Setter Property="Width" Value="Auto"/>
+                                                                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                            <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                            <Setter Property="FontWeight" Value="Medium"/>
+                                                                        </Style>
+                                                                    </TextBlock.Style>
+                                                                </TextBlock>
+                                                            </Border>
+                                                        </Border>
+                                                        <Border Grid.Column="4" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}">
+                                                            <Button Command="{Binding DataContext.PresentCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                            CommandParameter="{Binding}" >
+                                                                <Button.Style>
+                                                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle1}">
+                                                                        <Setter Property="Content" Value="Present"/>
+                                                                        <Setter Property="Background" Value="{StaticResource Color23Brush}"/>
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                                        <Setter Property="Height" Value="55"/>
+                                                                        <Setter Property="Width" Value="150"/>
+                                                                        <Setter Property="Foreground" Value="{StaticResource Color18Brush}"/>
+                                                                        <Setter Property="Template">
+                                                                            <Setter.Value>
+                                                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                                                    <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="10">
+                                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                                    </Border>
+                                                                                </ControlTemplate>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding Status,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ConvertAttendanceStatus}}" Value="Attended">
+                                                                                <Setter Property="Background" Value="{StaticResource Color50Brush}"/>
+                                                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                            </DataTrigger>
+                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                <Setter Property="Background" Value="{StaticResource Color57Brush}"/>
+                                                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                            </Trigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Button.Style>
+                                                            </Button>
+                                                        </Border>
+                                                        <Border Grid.Column="5" BorderThickness="1 1 0 1" BorderBrush="{StaticResource Color53Brush}" CornerRadius="0 8 8 0">
+                                                            <Button Command="{Binding DataContext.AbsentCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                            CommandParameter="{Binding}" >
+                                                                <Button.Style>
+                                                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle1}">
+                                                                        <Setter Property="Content" Value="Absent"/>
+                                                                        <Setter Property="Background" Value="{StaticResource Color23Brush}"/>
+                                                                        <Setter Property="FontSize" Value="{StaticResource FontSize20}"/>
+                                                                        <Setter Property="FontWeight" Value="Medium"/>
+                                                                        <Setter Property="Height" Value="55"/>
+                                                                        <Setter Property="Width" Value="150"/>
+                                                                        <Setter Property="Foreground" Value="{StaticResource Color18Brush}"/>
+                                                                        <Setter Property="Template">
+                                                                            <Setter.Value>
+                                                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                                                    <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="10">
+                                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                                    </Border>
+                                                                                </ControlTemplate>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding Status,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ConvertAttendanceStatus}}" Value="Absent">
+                                                                                <Setter Property="Background" Value="{StaticResource Color31Brush}"/>
+                                                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                            </DataTrigger>
+                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                <Setter Property="Background" Value="{StaticResource Color53Brush}"/>
+                                                                                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                                                                            </Trigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Button.Style>
+                                                            </Button>
+                                                        </Border>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+                                    <ListView.Template>
+                                        <ControlTemplate>
+                                            <Grid HorizontalAlignment="Left">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0" Width="1200" VerticalAlignment="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition Width="4*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Border Grid.Column="0" Style="{StaticResource BorderGrid}" >
+                                                        <TextBlock Text="Course" Style="{StaticResource TextBlockGrid}"/>
+                                                    </Border>
+                                                    <Border Grid.Column="1" Style="{StaticResource BorderGrid}">
+                                                        <TextBlock Text="Class" Style="{StaticResource TextBlockGrid}"/>
+                                                    </Border>
+                                                    <Border Grid.Column="2" Style="{StaticResource BorderGrid}">
+                                                        <TextBlock Text="Roll Number" Style="{StaticResource TextBlockGrid}"/>
+                                                    </Border>
+                                                    <Border Grid.Column="3" Style="{StaticResource BorderGrid}">
+                                                        <TextBlock Text="Full Name" Style="{StaticResource TextBlockGrid}"/>
+                                                    </Border>
+                                                    <Border Grid.Column="4" Style="{StaticResource BorderGrid}">
+                                                        <TextBlock Text="Present" Style="{StaticResource TextBlockGrid}"/>
+                                                    </Border>
+                                                    <Border Grid.Column="5" Style="{StaticResource BorderGrid}">
+                                                        <TextBlock Text="Absent" Style="{StaticResource TextBlockGrid}"/>
+                                                    </Border>
+                                                </Grid>
+                                                <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewTitle}">
+                                                    <ItemsPresenter />
+                                                </ScrollViewer>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </ListView.Template>
+                                </ListView>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                                    <Border BorderBrush="#27a7f2" 
+                        BorderThickness="0" 
+                        Margin="10 30 10 0"
+                        CornerRadius="10">
+                                        <Button Command="{Binding SaveAttendanceCommand}">
+                                            <Button.Style>
+                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle1}">
+                                                    <Setter Property="Background" Value="#27a7f2"/>
+                                                    <Setter Property="Height" Value="50"/>
+                                                    <Setter Property="Width" Value="150"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                                <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0" CornerRadius="10">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="{StaticResource Color53Brush}"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Save" 
+                                       VerticalAlignment="Center" 
+                                       Foreground="{StaticResource WhiteBrush}" 
+                                       FontWeight="Medium"
+                                       FontSize="{StaticResource FontSize20}"
+                                       Style="{StaticResource TextBlockStyle2}"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
                     </Border>
                 </Border>
             </Grid>

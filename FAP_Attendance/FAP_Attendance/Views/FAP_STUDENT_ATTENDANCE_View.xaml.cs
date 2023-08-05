@@ -26,5 +26,10 @@ namespace FAP_Attendance.Views
             InitializeComponent();
             DataContext = Manager.Resolve<IFAP_STUDENT_ATTENDANCE_ViewModel>();
         }
+
+        private void Item1_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

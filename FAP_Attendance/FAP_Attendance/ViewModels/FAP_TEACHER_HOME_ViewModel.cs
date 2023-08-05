@@ -113,33 +113,39 @@ namespace FAP_Attendance.ViewModels
                                     .ToList();
             foreach (var tt in distinctTimeTables)
             {
-                TeacherTakeClass teacherTake = new TeacherTakeClass();
-                teacherTake.Slot = (int)tt.Slotid;
-                teacherTake.StartTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotstart;
-                teacherTake.EndTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotend;
-                teacherTake.Subject = context.FapCourses.FirstOrDefault(x => x.Courseid == tt.Courseid).Coursekey;
-                teacherTake.ClassName = context.FapClasses.FirstOrDefault(x => x.Classid == tt.Classid).Classname;
-                teacherTake.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == tt.Roomid).Roomname;
-                teacherTake.Start = (DateTime)tt.Timetabledate;
-                ListClassTakeAttendance.Add(teacherTake);
+                if (tt.Timetabledate.HasValue && tt.Timetabledate.Value.Date == DateTime.Today)
+                {
+                    TeacherTakeClass teacherTake = new TeacherTakeClass();
+                    teacherTake.Slot = (int)tt.Slotid;
+                    teacherTake.StartTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotstart;
+                    teacherTake.EndTime = context.FapSlots.FirstOrDefault(x => x.Slotid == tt.Slotid).Slotend;
+                    teacherTake.Subject = context.FapCourses.FirstOrDefault(x => x.Courseid == tt.Courseid).Coursekey;
+                    teacherTake.ClassName = context.FapClasses.FirstOrDefault(x => x.Classid == tt.Classid).Classname;
+                    teacherTake.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == tt.Roomid).Roomname;
+                    teacherTake.Start = (DateTime)tt.Timetabledate;
+                    ListClassTakeAttendance.Add(teacherTake);
+                }
             }
         }
 
         private void LoadData()
         {
+
             FapContext context = new FapContext();
             FapTeacher student = context.FapTeachers.FirstOrDefault(x => x.Usid == SessionData._User.Userid);
             List<FapTimetable> lstTimeTable = context.FapTimetables.Where(x => x.Teacherid == student.Teacherid).ToList();
             foreach (var t in lstTimeTable)
             {
-                TimeTable timetable = new TimeTable();
-                timetable.Slot = (int)t.Slotid;
-                timetable.Course = context.FapCourses.FirstOrDefault(x => x.Courseid == t.Courseid).Coursekey;
-                timetable.Days = (int)t.Dowid + 1;
-                FapSlot slot = context.FapSlots.FirstOrDefault(x => x.Slotid == t.Slotid);
-                timetable.Time = slot.Slotstart + "-" + slot.Slotend;
-                timetable.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == t.Roomid).Roomname;
-                LstTimeTable.Add(timetable);
+               
+                    TimeTable timetable = new TimeTable();
+                    timetable.Slot = (int)t.Slotid;
+                    timetable.Course = context.FapCourses.FirstOrDefault(x => x.Courseid == t.Courseid).Coursekey;
+                    timetable.Days = (int)t.Dowid + 1;
+                    FapSlot slot = context.FapSlots.FirstOrDefault(x => x.Slotid == t.Slotid);
+                    timetable.Time = slot.Slotstart + "-" + slot.Slotend;
+                    timetable.Room = context.FapRooms.FirstOrDefault(x => x.Roomid == t.Roomid).Roomname;
+                    LstTimeTable.Add(timetable);
+                
             }
             foreach (var item in LstTimeTable)
             {

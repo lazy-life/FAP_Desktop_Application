@@ -149,28 +149,26 @@ namespace FAP_Attendance.ViewModels
             int count = 1;
             foreach (var att in attendance)
             {
-                AttendanceStudent attendanceStudent = new AttendanceStudent();
-                attendanceStudent.Number = count++;
-                attendanceStudent.AttendanceId = att.Attendanceid;
-                attendanceStudent.ClassName = context.FapClasses.FirstOrDefault(x => x.Classid == att.Classid).Classname;
-                int usId = (int)context.FapStudents.FirstOrDefault(x => x.Studentid == att.Studentid).Usid;
-                FapUser us = context.FapUsers.FirstOrDefault(x => x.Userid == usId);
-                attendanceStudent.RollNumber = us.Usernumber;
-                attendanceStudent.FullName = us.Userfullname;
-                attendanceStudent.Status = (int)att.Attendancestatus;
-                ListAttendance.Add(attendanceStudent);
-            }
+                if (att.Attendancedate.HasValue && att.Attendancedate.Value.Date == DateTime.Today)
+                {
+                    AttendanceStudent attendanceStudent = new AttendanceStudent();
+                    attendanceStudent.Number = count++;
+                    attendanceStudent.AttendanceId = att.Attendanceid;
+                    attendanceStudent.ClassName = context.FapClasses.FirstOrDefault(x => x.Classid == att.Classid).Classname;
 
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12345", "Dao Trung Duc", 1, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12356", "Tran Ngoc Cuong", 0, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12345", "Ly Hong Ngoc", 2, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12323", "Nguyen Quang Khai", 2, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12476", "Phan Nhat Linh", 1, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12336", "Nguyen Tran Ka Long", 0, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12379", "Nguyen Do Uyen Nhi", 0, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12396", "Tran Ngoc Van Minh Quang", 0, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12309", "Nguyen Xuan Hung", 0, 2));
-            //ListAttendance.Add(new AttendanceStudent(1, "SE1629", "HE12349", "Ngo Minh Tien", 0, 2));
+                    FapStudent st = context.FapStudents.FirstOrDefault(x => x.Studentid == att.Studentid);
+                    if(st != null)
+                    {
+                        int usId = (int)st.Usid;
+                        FapUser us = context.FapUsers.FirstOrDefault(x => x.Userid == usId);
+                        attendanceStudent.RollNumber = us.Usernumber;
+                        attendanceStudent.FullName = us.Userfullname;
+                        attendanceStudent.Status = (int)att.Attendancestatus;
+                        ListAttendance.Add(attendanceStudent);
+                    }
+                    
+                }
+            }
         }
 
 

@@ -49,6 +49,7 @@ namespace FAP_Attendance
             containerRegistry.Register<IFAP_PU_CONFIRM_EXIT_APP_ViewModel, FAP_PU_CONFIRM_EXIT_APP_ViewModel>();
             containerRegistry.Register<IFAP_PU_LOGIN_FAIL_ViewModel, FAP_PU_LOGIN_FAIL_ViewModel>();
             containerRegistry.Register<IFAP_TEACHER_ATTENDANCE_ViewModel, FAP_TEACHER_ATTENDANCE_ViewModel>();
+            containerRegistry.Register<IFAP_MANAGER_HOME_ViewModel, FAP_MANAGER_HOME_ViewModel>();
             #endregion
 
             Manager.Configuration(Container);
